@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class cutscreenmanager : MonoBehaviour
 {
-    private Vector2 startpos;
-    private Vector2 endpos;
+    public Vector2 startpos;
+    public Vector2 endpos;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void OnMouseDown()
     {
