@@ -1,23 +1,26 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
-public class cutscreenmanager : MonoBehaviour
+public class CutScreenManager : MonoBehaviour
 {
     public Vector2 startpos;
     public Vector2 endpos;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void OnMouseDown()
+
+    void Update()
     {
-        startpos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        if (Mouse.current.leftButton.wasPressedThisFrame)
+        {
+            startpos = (Vector2)Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
+        }
+
+        if (Mouse.current.leftButton.wasReleasedThisFrame)
+        {
+            endpos = (Vector2)Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
+            PerformCut(startpos, endpos);
+        }
     }
 
-    // Update is called once per frame
-    void OnMouseUp()
-    {
-        endpos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        performcut(startpos, endpos);
-    }
-
-    void performcut(Vector2 start, Vector2 end)
+    void PerformCut(Vector2 start, Vector2 end)
     {
         Debug.Log("Cut from " + start + " to " + end);
     }
