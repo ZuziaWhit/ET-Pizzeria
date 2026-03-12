@@ -3,8 +3,8 @@ using UnityEngine.InputSystem;
 
 public class CutScreenManager : MonoBehaviour
 {
-    public Vector2 startpos;
-    public Vector2 endpos;
+    private Vector2 startpos;
+    private Vector2 endpos;
 
     void Update()
     {
