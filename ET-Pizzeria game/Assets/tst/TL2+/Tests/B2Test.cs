@@ -3,22 +3,90 @@ using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.TestTools;
 
-public class B2Test
+public class PizzaCutLengthBoundaryTest
 {
-    // A Test behaves as an ordinary method
-    [Test]
-    public void B2TestSimplePasses()
+    private GameObject pizza;
+    private CutScreenManager cutManager;
+    private GameObject linePrefab;
+    private int pizzaLayer;
+
+    [SetUp]
+    public void Setup()
     {
-        // Use the Assert class to test conditions
+        // Camera
+        GameObject camObj = new GameObject("TestCamera");
+        var cam = camObj.AddComponent<Camera>();
+        cam.orthographic = true;
+        cam.transform.position = new Vector3(0, 0, -10);
+        camObj.tag = "MainCamera";
+
+        // Pizza
+        pizza = new GameObject("Pizza");
+        pizza.transform.position = Vector3.zero;
+        var collider = pizza.AddComponent<CircleCollider2D>();
+        collider.radius = 2f;
+
+        pizzaLayer = LayerMask.NameToLayer("Pizza");
+        if (pizzaLayer == -1) pizzaLayer = 0;
+        pizza.layer = pizzaLayer;
+
+        // Line prefab
+        linePrefab = new GameObject("LinePrefab");
+        var lr = linePrefab.AddComponent<LineRenderer>();
+        lr.startWidth = 0.1f;
+        lr.endWidth = 0.1f;
+        lr.material = new Material(Shader.Find("Universal Render Pipeline/Unlit"));
+
+        // Manager
+        GameObject managerObj = new GameObject("CutManager");
+        cutManager = managerObj.AddComponent<CutScreenManager>();
+        cutManager.linePrefab = linePrefab;
+        cutManager.pizzaLayer = 1 << pizzaLayer;
     }
 
-    // A UnityTest behaves like a coroutine in Play Mode. In Edit Mode you can use
-    // `yield return null;` to skip a frame.
     [UnityTest]
-    public IEnumerator B2TestWithEnumeratorPasses()
+    public IEnumerator CutLengthBoundaryTest()
     {
-        // Use the Assert class to test conditions.
-        // Use yield to skip a frame.
+        Vector2 center = pizza.transform.position;
+        float radius = 2f;
+
+        // small cut (should NOT work)
+        Vector2 smallStart = center;
+        Vector2 smallEnd = center + new Vector2(0.01f, 0.01f);
+
+        cutManager.PerformCut(smallStart, smallEnd);
         yield return null;
+
+        int afterSmall = cutManager.transform.childCount;
+        Assert.IsTrue(afterSmall == 0, "Small cuts should NOT create a line");
+
+        // normal cut (should work)
+        Vector2 normalStart = center + Vector2.left * radius;
+        Vector2 normalEnd = center + Vector2.right * radius;
+
+        cutManager.PerformCut(normalStart, normalEnd);
+        yield return null;
+
+        int afterNormal = cutManager.transform.childCount;
+        Assert.IsTrue(afterNormal > afterSmall, "Normal cut should create a line");
+
+        // large cut (should still work)
+        Vector2 largeStart = center + Vector2.left * 10f;
+        Vector2 largeEnd = center + Vector2.right * 10f;
+
+        cutManager.PerformCut(largeStart, largeEnd);
+        yield return null;
+
+        int afterLarge = cutManager.transform.childCount;
+        Assert.IsTrue(afterLarge > afterNormal, "Large cuts crossing pizza should work");
+    }
+
+    [TearDown]
+    public void TearDown()
+    {
+        Object.DestroyImmediate(pizza);
+        Object.DestroyImmediate(linePrefab);
+        Object.DestroyImmediate(cutManager.gameObject);
+        Object.DestroyImmediate(GameObject.Find("TestCamera"));
     }
 }

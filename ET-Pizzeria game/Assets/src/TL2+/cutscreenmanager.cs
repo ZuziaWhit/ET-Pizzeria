@@ -62,6 +62,12 @@ public class CutScreenManager : MonoBehaviour
     {
         RaycastHit2D hit = Physics2D.Linecast(start, end, pizzaLayer);
 
+        if (Vector2.Distance(start, end) < 0.1f)
+        {
+            Debug.Log("Cut too small, ignored");
+            return;
+        }
+
         if (!hit)
         {
             Debug.Log("Missed pizza");
@@ -85,8 +91,22 @@ public class CutScreenManager : MonoBehaviour
             return;
         }
 
-        GameObject lineObj = Instantiate(linePrefab);
+        GameObject lineObj = Instantiate(linePrefab, this.transform);
         LineRenderer lr = lineObj.GetComponent<LineRenderer>();
+
+        lr.positionCount = 2;
+        lr.SetPosition(0, ToV3(p1));
+        lr.SetPosition(1, ToV3(p2));
+
+        lr.startWidth = 0.12f;
+        lr.endWidth = 0.12f;
+        lr.numCapVertices = 5;
+
+        lr.material = new Material(Shader.Find("Universal Render Pipeline/Unlit"));
+        lr.sortingLayerName = "pizzaLayer";
+        lr.sortingOrder = 100;
+
+        cutLines.Add(lr);
 
         if (lr == null)
         {
