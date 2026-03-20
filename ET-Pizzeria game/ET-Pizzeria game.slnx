@@ -1,5 +1,3 @@
 ﻿<Solution>
   <Project Path="Assembly-CSharp.csproj" />
-  <Project Path="Tests.csproj" />
-  <Project Path="stresstest.csproj" />
 </Solution>
