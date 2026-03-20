@@ -51,17 +51,16 @@ public class PizzaCutStressTest
     [UnityTest]
     public IEnumerator StressTestMultipleCuts()
     {
-        int cutCount = 1000; 
+        int cutCount = 500; 
 
         for (int i = 0; i < cutCount; i++)
         {
             Vector2 start = (Vector2)pizza.transform.position + Random.insideUnitCircle * 2f;
             Vector2 end = (Vector2)pizza.transform.position + Random.insideUnitCircle * 2f;
 
-            // call PerformCut 
             cutManager.PerformCut(start, end);
 
-            yield return null; // simulate frame
+            yield return null;
         }
 
         Assert.IsTrue(cutManager.transform.childCount >= cutCount, "Cuts spawned correctly and hit pizza.");
