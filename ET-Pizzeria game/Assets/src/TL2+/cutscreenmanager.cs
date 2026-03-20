@@ -58,7 +58,7 @@ public class CutScreenManager : MonoBehaviour
         return new Vector3(v.x, v.y, 0f);
     }
 
-    void PerformCut(Vector2 start, Vector2 end)
+    public void PerformCut(Vector2 start, Vector2 end)
     {
         RaycastHit2D hit = Physics2D.Linecast(start, end, pizzaLayer);
 

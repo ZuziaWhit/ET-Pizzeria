@@ -533,8 +533,6 @@ MonoBehaviour:
     m_Bits: 1024
   previewLine: {fileID: 6602268045923593979, guid: cd0e185ebc815084aa070b2729f53914, type: 3}
   linePrefab: {fileID: 3852365156992367573, guid: cd0e185ebc815084aa070b2729f53914, type: 3}
-  sliceCount: 6
-  pizzaRadius: 1
 --- !u!4 &980461258
 Transform:
   m_ObjectHideFlags: 0
