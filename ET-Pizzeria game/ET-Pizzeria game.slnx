@@ -3,3 +3,9 @@
   <Project Path="TL1.Tests.csproj" />
   <Project Path="TL1.Runtime.csproj" />
 </Solution>
+﻿<Solution>
+  <Project Path="TL2+runtime.csproj" />
+  <Project Path="Tests.csproj" />
+  <Project Path="Assembly-CSharp.csproj" />
+  <Project Path="Stresstest.csproj" />
+</Solution>

@@ -15,7 +15,7 @@ TagManager:
   - Table
   - Customer
   - Background
-  - 
+  - pizzaLayer
   - 
   - 
   - 
@@ -41,8 +41,14 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: BG1
+  - name: background
     uniqueID: 2526497549
+    locked: 0
+  - name: pizzaLayer
+    uniqueID: 848347191
+    locked: 0
+  - name: Text
+    uniqueID: 2978625611
     locked: 0
   m_RenderingLayers:
   - Default

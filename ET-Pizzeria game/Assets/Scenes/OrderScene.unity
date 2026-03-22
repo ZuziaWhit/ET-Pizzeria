@@ -632,6 +632,7 @@ Transform:
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1298127486
+--- !u!1 &1042642800
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -645,6 +646,10 @@ GameObject:
   - component: {fileID: 1298127490}
   m_Layer: 5
   m_Name: OrderTicket
+  - component: {fileID: 1042642802}
+  - component: {fileID: 1042642801}
+  m_Layer: 0
+  m_Name: PizzaOrderGenerator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -673,6 +678,7 @@ RectTransform:
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1298127488
+--- !u!114 &1042642801
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -717,6 +723,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1298127486}
+  m_GameObject: {fileID: 1042642800}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dfbb66ae916e0e1478c55e194bc986dc, type: 3}
@@ -734,6 +741,9 @@ MonoBehaviour:
   - Extra Cheese
   - Black Olives
   - Green Peppers
+  - ExtraCheese
+  - BlackOlives
+  - GreenPeppers
   cutTypes:
   - 1
   - 2
@@ -944,6 +954,7 @@ MonoBehaviour:
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
 --- !u!4 &1629696333
+--- !u!4 &1042642802
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -953,6 +964,10 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_GameObject: {fileID: 1042642800}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.02638, y: -0.06737, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1426,3 +1441,4 @@ SceneRoots:
   - {fileID: 155933190}
   - {fileID: 354385715}
   - {fileID: 1629696333}
+  - {fileID: 1042642802}
