@@ -1,0 +1,6 @@
+{
+    "name": "TL2StressTests",
+    "optionalUnityReferences": [
+        "TestAssemblies"
+    ]
+}
