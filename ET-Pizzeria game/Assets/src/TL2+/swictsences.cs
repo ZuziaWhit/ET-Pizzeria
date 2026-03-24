@@ -6,7 +6,12 @@ public class swictsences : MonoBehaviour
 {
     public void LoadSpecificScene(string sceneName)
     {
-        SceneManager.LoadScene(sceneName);
-        SceneManager.LoadScene("GUI", LoadSceneMode.Additive);
+        if(sceneName == "EndDayScene"){
+            SceneManager.LoadScene(sceneName);
+        }else{
+            SceneManager.LoadScene(sceneName);
+            SceneManager.LoadScene("GUI", LoadSceneMode.Additive); 
+        }
+
     }
 }

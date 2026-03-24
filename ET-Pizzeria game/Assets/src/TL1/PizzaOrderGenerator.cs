@@ -1,20 +1,14 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class PizzaOrderGenerator : MonoBehaviour
 {
+    public TMP_Text timeText;
+    public TMP_Text cutText;
+    public TMP_Text toppingsText;
 
-    /*
-     -------------------------
-     ORDER DATABASE
-     -------------------------
-     Unity 6 best practice:
-     Keep order data separate so it can be edited later.
-    */
-
-    /*
-    The ingredientDatabase array contains the different ingredients.
-    */
     public string[] ingredientDatabase =
     {
         "Pepperoni",
@@ -22,56 +16,21 @@ public class PizzaOrderGenerator : MonoBehaviour
         "Onion",
         "Sausage",
         "Bacon",
-        "ExtraCheese",
-        "BlackOlives",
-        "GreenPeppers"
+        "Extra Cheese",
+        "Black Olives",
+        "Green Peppers"
     };
 
-    /*
-    The cutTypes array contains the amount of slices the pizza will be cut into.
-    */
-    public string[] cutTypes =
-    {
-        "1",
-        "2",
-        "4"
-    };
-
-    /*
-    The bakeTimes array contains the different baking times in units of seconds.
-    */
-    public string[] bakeTimes =
-    {
-        "5s",
-        "10s",
-        "15s"
-    };
-
-
-    /*
-     -------------------------
-     ORDER OBJECT
-     -------------------------
-     Serializable so Unity can
-     display it in the Inspector.
-    */
+    public string[] cutTypes = { "1", "2", "4" };
+    public string[] bakeTimes = { "5s", "10s", "15s" };
 
     [System.Serializable]
     public class PizzaOrder
     {
-        public string ingredient1;
-        public string ingredient2;
-        public string ingredient3;
+        public List<string> ingredients = new List<string>();
         public string cutType;
         public string bakeTime;
     }
-
-
-    /*
-     -------------------------
-     RANDOM ORDER GENERATOR
-     -------------------------
-    */
 
     public PizzaOrder GenerateRandomOrder()
     {
@@ -79,25 +38,15 @@ public class PizzaOrderGenerator : MonoBehaviour
 
         HashSet<int> selectedIngredients = new HashSet<int>();
 
-        // Ensure we get 3 unique ingredients
         while (selectedIngredients.Count < 3)
         {
             int randomIndex = Random.Range(0, ingredientDatabase.Length);
             selectedIngredients.Add(randomIndex);
         }
 
-        int i = 0;
-
         foreach (int index in selectedIngredients)
         {
-            if (i == 0)
-                order.ingredient1 = ingredientDatabase[index];
-            else if (i == 1)
-                order.ingredient2 = ingredientDatabase[index];
-            else if (i == 2)
-                order.ingredient3 = ingredientDatabase[index];
-
-            i++;
+            order.ingredients.Add(ingredientDatabase[index]);
         }
 
         order.cutType = cutTypes[Random.Range(0, cutTypes.Length)];
@@ -106,24 +55,31 @@ public class PizzaOrderGenerator : MonoBehaviour
         return order;
     }
 
-
-    /*
-     -------------------------
-     UNITY INTEGRATION
-     -------------------------
-    */
-
     private void Start()
     {
         PizzaOrder order = GenerateRandomOrder();
-
-        Debug.Log("New Pizza Order Generated/n");
-
-        Debug.Log("Ingredient 1: " + order.ingredient1);
-        Debug.Log("Ingredient 2: " + order.ingredient2);
-        Debug.Log("Ingredient 3: " + order.ingredient3);
-        Debug.Log("Cut Type: " + order.cutType);
-        Debug.Log("Bake Time: " + order.bakeTime);
+        StartCoroutine(DisplayOrderRoutine(order));
     }
 
+    IEnumerator DisplayOrderRoutine(PizzaOrder order)
+    {
+        // Clear UI first
+        toppingsText.text = "";
+        timeText.text = "";
+        cutText.text = "";
+
+        // 1️⃣ Show toppings one by one
+        foreach (string ingredient in order.ingredients)
+        {
+            toppingsText.text += ingredient + "\n";
+            yield return new WaitForSeconds(1.5f);
+        }
+
+        // 2️⃣ Show bake time
+        timeText.text = "Bake Time: " + order.bakeTime;
+        yield return new WaitForSeconds(1.5f);
+
+        // 3️⃣ Show cut type
+        cutText.text = "Cut Type: " + order.cutType;
+    }
 }
