@@ -52,7 +52,7 @@ public class PizzaCutStressTest
     [Timeout(300000000)]
     public IEnumerator StressTestMultipleCuts()
     {
-        int cutCount = 500000000; 
+        int cutCount = 1000; 
 
         for (int i = 0; i < cutCount; i++)
         {

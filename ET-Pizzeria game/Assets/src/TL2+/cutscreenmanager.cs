@@ -78,12 +78,30 @@ public class CutScreenManager : MonoBehaviour
 
         Vector2 center = pizza.position;
         float pizzaRadius = 2f;
+        
         Vector2 dir = (end - start).normalized;
-        Vector2 p1 = center + (Vector2.Dot(start - center, dir)) * dir;
-        Vector2 p2 = center + (Vector2.Dot(end - center, dir)) * dir;
 
-        if ((p1 - center).magnitude > pizzaRadius) p1 = center + (p1 - center).normalized * pizzaRadius;
-        if ((p2 - center).magnitude > pizzaRadius) p2 = center + (p2 - center).normalized * pizzaRadius;
+        Vector2 f = start - center;
+
+        float a = Vector2.Dot(dir, dir);
+        float b = 2 * Vector2.Dot(f, dir);
+        float c = Vector2.Dot(f, f) - pizzaRadius * pizzaRadius;
+
+        float discriminant = b * b - 4 * a * c;
+
+        if (discriminant < 0)
+        {
+            Debug.Log("No intersection with pizza");
+            return;
+        }
+
+        discriminant = Mathf.Sqrt(discriminant);
+
+        float t1 = (-b - discriminant) / (2 * a);
+        float t2 = (-b + discriminant) / (2 * a);
+
+        Vector2 p1 = start + dir * t1;
+        Vector2 p2 = start + dir * t2;
 
         if (linePrefab == null)
         {
@@ -98,11 +116,19 @@ public class CutScreenManager : MonoBehaviour
         lr.SetPosition(0, ToV3(p1));
         lr.SetPosition(1, ToV3(p2));
 
-        lr.startWidth = 0.12f;
-        lr.endWidth = 0.12f;
+        lr.startWidth = 0.06f;
+        lr.endWidth = 0.06f;
         lr.numCapVertices = 5;
 
         lr.material = new Material(Shader.Find("Universal Render Pipeline/Unlit"));
+
+        Color cutColor;
+
+        if (ColorUtility.TryParseHtmlString("#FCFAE3", out cutColor))
+        {
+            lr.material.color = cutColor;
+        }
+
         lr.sortingLayerName = "pizzaLayer";
         lr.sortingOrder = 100;
 
@@ -113,20 +139,6 @@ public class CutScreenManager : MonoBehaviour
             Debug.LogError("LinePrefab missing LineRenderer!");
             return;
         }
-
-        lr.positionCount = 2;
-        lr.SetPosition(0, ToV3(p1));
-        lr.SetPosition(1, ToV3(p2));
-
-        lr.startWidth = 0.12f;
-        lr.endWidth = 0.12f;
-        lr.numCapVertices = 5;
-
-        lr.material = new Material(Shader.Find("Universal Render Pipeline/Unlit"));
-        lr.sortingLayerName = "pizzaLayer";
-        lr.sortingOrder = 100;
-
-        cutLines.Add(lr);
 
         PizzaSlice slice = pizza.GetComponent<PizzaSlice>();
         if (slice != null)
