@@ -68,6 +68,12 @@ public class CutScreenManager : MonoBehaviour
             return;
         }
 
+        //if (end > off || start > off)
+        //{
+            //Debug.Log("Cut outside the cutting board, ignored");
+            //return;
+        //}
+
         if (!hit)
         {
             Debug.Log("Missed pizza");

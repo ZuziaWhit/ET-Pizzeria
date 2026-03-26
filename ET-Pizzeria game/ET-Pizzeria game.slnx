@@ -1,11 +1,16 @@
 ﻿<Solution>
-  <Project Path="Assembly-CSharp.csproj" />
-  <Project Path="TL1.Tests.csproj" />
-  <Project Path="TL1.Runtime.csproj" />
-</Solution>
-﻿<Solution>
+  <Project Path="TL2BoundaryTests.csproj" />
+  <Project Path="ScoreAssembly.csproj" />
   <Project Path="TL2+runtime.csproj" />
+  <Project Path="TL2StressTests.csproj" />
+  <Project Path="PlayMode.csproj" />
   <Project Path="Tests.csproj" />
-  <Project Path="Assembly-CSharp.csproj" />
+  <Project Path="TL4StressTests.csproj" />
+  <Project Path="TL1.Tests.csproj" />
+  <Project Path="TL5.Gameplay.csproj" />
+  <Project Path="TL4BoundaryTests.csproj" />
   <Project Path="Stresstest.csproj" />
+  <Project Path="TL2.Test.csproj" />
+  <Project Path="TL1.Runtime.csproj" />
+  <Project Path="Assembly-CSharp.csproj" />
 </Solution>
