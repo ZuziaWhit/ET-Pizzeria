@@ -68,7 +68,7 @@ public class CutScreenManager : MonoBehaviour
             return;
         }
 
-        //if (end > off || start > off)
+        //if (end > (8,6) || start > (8,6))
         //{
             //Debug.Log("Cut outside the cutting board, ignored");
             //return;
