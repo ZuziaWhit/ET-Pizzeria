@@ -10,20 +10,25 @@ public class PizzaBaking : MonoBehaviour
     public bool isCooked = false;
     public bool isBurnt = false;
 
+    public bool canBake = false;
+
     void Update()
     {
         if (isInOven && !isBurnt)
         {
             currentBakeTime += Time.deltaTime;
+            Debug.Log("Bake Time: " + currentBakeTime);
 
             if (currentBakeTime >= burntTime)
             {
                 isBurnt = true;
                 isCooked = false;
+                Debug.Log("Pizza Burnt!");
             }
             else if (currentBakeTime >= cookedTime)
             {
                 isCooked = true;
+                Debug.Log("Pizza Cooked!");
             }
         }
     }
@@ -47,5 +52,19 @@ public class PizzaBaking : MonoBehaviour
             isCooked = false;
             isBurnt = false;
         }
+    }
+    public void StartBaking()
+{
+    Debug.Log("Bake Button Pressed!");
+
+    if (!canBake) {
+
+    Debug.Log("Cannot Bake Here");
+    return;
+        }
+    isInOven = true;
+    currentBakeTime = 0f;
+    isCooked = false;
+    isBurnt = false;
     }
 }

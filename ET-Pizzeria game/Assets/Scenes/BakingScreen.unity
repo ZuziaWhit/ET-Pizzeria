@@ -347,9 +347,11 @@ GameObject:
   - component: {fileID: 952788246}
   - component: {fileID: 952788245}
   - component: {fileID: 952788248}
+  - component: {fileID: 952788249}
+  - component: {fileID: 952788250}
   m_Layer: 0
   m_Name: Pizza
-  m_TagString: Untagged
+  m_TagString: Pizza
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -476,6 +478,52 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6de214fa78635c045ae1b40c27016ee0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DragPizza
+--- !u!114 &952788249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 952788244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87d16f27eb232d341ab2331d4ee5bbcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: TL3test::PizzaBaking
+  currentBakeTime: 0
+  cookedTime: 10
+  burntTime: 15
+  isInOven: 0
+  isCooked: 0
+  isBurnt: 0
+  canBake: 0
+--- !u!50 &952788250
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 952788244}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &1012986831
 GameObject:
   m_ObjectHideFlags: 0
@@ -518,6 +566,7 @@ GameObject:
   - component: {fileID: 1152628045}
   - component: {fileID: 1152628044}
   - component: {fileID: 1152628043}
+  - component: {fileID: 1152628046}
   m_Layer: 0
   m_Name: Oven
   m_TagString: Untagged
@@ -646,6 +695,18 @@ Transform:
   - {fileID: 1012986832}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1152628046
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1152628042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d80d54879c37f6e4d8dd2c9396245284, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: TL3test::OvenTrigger
 --- !u!1 &1817487417
 GameObject:
   m_ObjectHideFlags: 0
@@ -831,7 +892,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1905659522}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 952788249}
+        m_TargetAssemblyTypeName: PizzaBaking, TL3test
+        m_MethodName: StartBaking
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1905659522
 MonoBehaviour:
   m_ObjectHideFlags: 0
