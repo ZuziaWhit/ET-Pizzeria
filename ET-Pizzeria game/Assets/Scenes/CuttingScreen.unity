@@ -387,6 +387,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa9d40a7aa7b5a348bbc7ff3eeb8373c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::cutscreenmanager
+  PizzaData: {fileID: 0}
   pizzaLayer:
     serializedVersion: 2
     m_Bits: 1024
@@ -648,6 +649,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1736895961}
   m_CullTransparentMesh: 1
+--- !u!1 &1940687604 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2034929220221889421, guid: ffbd2b8cedda8b343ad5c8009ea0271c, type: 3}
+  m_PrefabInstance: {fileID: 4508158911737987685}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1940687610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1940687604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c9da87153154194eacb9ee2fb7e0b5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: TL2+runtime::PizzaData
+  ingredients: []
+  cooktime: 0
+  numcut: 0
 --- !u!1 &1994137299
 GameObject:
   m_ObjectHideFlags: 0
@@ -840,7 +861,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2034929220221889421, guid: ffbd2b8cedda8b343ad5c8009ea0271c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1940687610}
   m_SourcePrefab: {fileID: 100100000, guid: ffbd2b8cedda8b343ad5c8009ea0271c, type: 3}
 --- !u!1001 &5022896842181002016
 PrefabInstance:

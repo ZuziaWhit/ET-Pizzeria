@@ -4,6 +4,7 @@ using UnityEngine.InputSystem;
 
 public class CutScreenManager : MonoBehaviour
 {
+    public Pizza Piz;
     private Vector2 startpos;
     private Vector2 endpos;
 
@@ -62,23 +63,19 @@ public class CutScreenManager : MonoBehaviour
     {
         RaycastHit2D hit = Physics2D.Linecast(start, end, pizzaLayer);
 
-        if (Vector2.Distance(start, end) < 0.1f)
+        if (Vector2.Distance(start, end) < 0.2f)
         {
             Debug.Log("Cut too small, ignored");
             return;
         }
-
-        //if (end > (8,6) || start > (8,6))
-        //{
-            //Debug.Log("Cut outside the cutting board, ignored");
-            //return;
-        //}
 
         if (!hit)
         {
             Debug.Log("Missed pizza");
             return;
         }
+
+        Pizza pizzaData = hit.collider.GetComponent<Pizza>();
 
         Transform pizza = hit.collider.transform;
 
@@ -140,16 +137,14 @@ public class CutScreenManager : MonoBehaviour
 
         cutLines.Add(lr);
 
-        if (lr == null)
+        if (pizzaData != null)
         {
-            Debug.LogError("LinePrefab missing LineRenderer!");
-            return;
+            pizzaData.AddCut();
         }
 
         PizzaSlice slice = pizza.GetComponent<PizzaSlice>();
         if (slice != null)
             slice.Slice(p1, p2);
-
         Debug.Log($"Freeform cut performed");
     }
 }
