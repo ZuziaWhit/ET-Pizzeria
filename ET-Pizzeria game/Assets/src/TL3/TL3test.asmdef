@@ -1,10 +1,7 @@
 {
-    "name": "TL2+runtime",
+    "name": "TL3test",
     "rootNamespace": "",
     "references": [
-        "Unity.InputSystem",
-        "Unity.InputSystem.IntegrationTests",
-        "Unity.InputSystem.TestFramework",
         "Pizza"
     ],
     "includePlatforms": [],
