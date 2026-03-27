@@ -14,4 +14,5 @@
   <Project Path="Stresstest.csproj" />
   <Project Path="TL2.Test.csproj" />
   <Project Path="TL1.Runtime.csproj" />
+  <Project Path="TL3test.csproj" />
 </Solution>

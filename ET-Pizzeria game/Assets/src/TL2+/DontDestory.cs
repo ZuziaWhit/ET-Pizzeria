@@ -1,10 +1,5 @@
 using UnityEngine;
 
-/*
-fairly sure this code will not have use :( for what we are doing.
-*/
-
-
 public class DontDestory : MonoBehaviour
 {
     private static GameObject[] persistentObjects = new GameObject[3];
@@ -15,11 +10,11 @@ public class DontDestory : MonoBehaviour
         if(persistentObjects[objectIndex] == null)
         {
             persistentObjects[objectIndex] = gameObject;
-            //DontDestoryOnLoad(gameObject);
+            DontDestroyOnLoad(gameObject);
         }
         else if (persistentObjects[objectIndex] != gameObject)
         {
-            //Destory(gameObject);
+            Destroy(gameObject);
         }
     }
 
