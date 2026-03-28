@@ -1,0 +1,16 @@
+{
+    "name": "TL3test",
+    "rootNamespace": "",
+    "references": [
+        "Pizza"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

@@ -4,7 +4,8 @@
     "references": [
         "Unity.InputSystem",
         "Unity.InputSystem.IntegrationTests",
-        "Unity.InputSystem.TestFramework"
+        "Unity.InputSystem.TestFramework",
+        "Pizza"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

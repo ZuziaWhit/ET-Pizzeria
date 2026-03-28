@@ -51,8 +51,9 @@ public class PizzaCutLengthBoundaryTest
         float radius = 2f;
 
         // small cut (should NOT work)
+        Debug.Log("small");
         Vector2 smallStart = center;
-        Vector2 smallEnd = center + new Vector2(0.01f, 0.01f);
+        Vector2 smallEnd = center + new Vector2(0.1f, 0.1f);
 
         cutManager.PerformCut(smallStart, smallEnd);
         yield return null;
@@ -61,6 +62,7 @@ public class PizzaCutLengthBoundaryTest
         Assert.IsTrue(afterSmall == 0, "Small cuts should NOT create a line");
 
         // normal cut (should work)
+        Debug.Log("normal");
         Vector2 normalStart = center + Vector2.left * radius;
         Vector2 normalEnd = center + Vector2.right * radius;
 
@@ -71,6 +73,7 @@ public class PizzaCutLengthBoundaryTest
         Assert.IsTrue(afterNormal > afterSmall, "Normal cut should create a line");
 
         // large cut (should still work)
+        Debug.Log("large");
         Vector2 largeStart = center + Vector2.left * 10f;
         Vector2 largeEnd = center + Vector2.right * 10f;
 

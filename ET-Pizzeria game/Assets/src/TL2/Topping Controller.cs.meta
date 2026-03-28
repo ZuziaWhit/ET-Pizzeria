@@ -1,2 +1,13 @@
 fileFormatVersion: 2
 guid: bb2d689340bf94dab8b28f5345a84796
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - pepperoniPrefab: {fileID: 1623456698024232241, guid: ff9d7811127b04ccc892d0440b8f3003, type: 3}
+  - spawnPoint: {fileID: 7370953967931127351, guid: 85eb92cc4738a44c5ac311c31b23745d, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
