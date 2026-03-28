@@ -8,9 +8,9 @@ public class Pizza : MonoBehaviour
     public float bakingTime = 0f;
     public int numberCuts = 0;
 
-    public void AddBakeTime()
+    public void AddBakeTime(float baketime)
         {
-            bakingTime++;
+            bakingTime = baketime;
             Debug.Log("Pizza is baking" + bakingTime);
         }
 

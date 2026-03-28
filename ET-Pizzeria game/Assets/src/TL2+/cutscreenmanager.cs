@@ -112,7 +112,7 @@ public class CutScreenManager : MonoBehaviour
             return;
         }
 
-        GameObject lineObj = Instantiate(linePrefab, this.transform);
+        GameObject lineObj = Instantiate(linePrefab, pizza);
         LineRenderer lr = lineObj.GetComponent<LineRenderer>();
 
         lr.positionCount = 2;
