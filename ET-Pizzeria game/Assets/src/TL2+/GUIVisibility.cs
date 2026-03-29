@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections.Generic;
 
-public class PersistentSceneVisibility : MonoBehaviour
+public class GUIVisibility : MonoBehaviour
 {
     private Renderer[] renderers;
     private GameObject[] children;
@@ -13,6 +13,7 @@ public class PersistentSceneVisibility : MonoBehaviour
         "GUI",
         "CuttingScreen",
         "ToppingScreen",
+        "OrderScene",
         "BakingScreen"
     };
 

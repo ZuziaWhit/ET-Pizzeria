@@ -9,7 +9,7 @@ public class CuttingScoring : MonoBehaviour
 
     public int CutScore(Pizza pizza)
     {
-        int idealCuts = 8; //Will call from Oder/Endday somthing later
+        int idealCuts = 8; //Will call from Order/Endday somthing later
         int cuts = pizza.GetCut();
         int score = 0;
 
