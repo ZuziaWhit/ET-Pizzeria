@@ -5,7 +5,6 @@ using UnityEngine.EventSystems;
 
 public class CutScreenManager : MonoBehaviour
 {
-    //public Pizza Piz;
     private Vector2 startpos;
     private Vector2 endpos;
 

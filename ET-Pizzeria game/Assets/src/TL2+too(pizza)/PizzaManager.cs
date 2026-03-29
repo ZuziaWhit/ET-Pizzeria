@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement; 
 
 public class PizzaManager : MonoBehaviour
 {
@@ -38,5 +39,10 @@ public class PizzaManager : MonoBehaviour
             Destroy(currentPizza);
             currentPizza = null;
         }
+    }
+
+    public void SUbmitPizza()
+    {
+        SceneManager.LoadScene("EndDayScene");
     }
 }

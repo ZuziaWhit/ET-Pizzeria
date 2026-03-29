@@ -47,6 +47,5 @@ public class SceneVisibility : MonoBehaviour
         {
             child.gameObject.SetActive(visible);
         }
-        //Debug.Log("Scene: " + scene.name + " Visible: " + visible);
     }
 }
