@@ -83,7 +83,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 848347191
   m_SortingLayer: 2
-  m_SortingOrder: 0
+  m_SortingOrder: 50
   m_MaskInteraction: 0
   m_Sprite: {fileID: -2413806693520163455, guid: 9b0a332c31d327b49aebb9dbaba4493f, type: 3}
   m_Color: {r: 0.9547169, g: 0.61091095, b: 0.21436086, a: 1}
@@ -157,7 +157,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Pizza::Pizza
   ingredients: []
   bakingTime: 0
-  numberCuts: 0
 --- !u!114 &-8654745072209970966
 MonoBehaviour:
   m_ObjectHideFlags: 0

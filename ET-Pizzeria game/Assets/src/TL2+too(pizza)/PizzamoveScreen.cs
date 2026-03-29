@@ -7,7 +7,7 @@ public class SceneVisibility : MonoBehaviour
 
     void Awake()
     {
-        if (FindObjectsOfType<SceneVisibility>().Length > 1)
+        if (FindObjectsByType<SceneVisibility>(FindObjectsSortMode.None).Length > 1)
         {
             Destroy(gameObject);
             return;

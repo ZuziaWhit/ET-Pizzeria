@@ -1,10 +1,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.EventSystems;
 
 public class CutScreenManager : MonoBehaviour
 {
-    public Pizza Piz;
+    //public Pizza Piz;
     private Vector2 startpos;
     private Vector2 endpos;
 
@@ -17,6 +18,10 @@ public class CutScreenManager : MonoBehaviour
 
     void Update()
     {
+        //no clicks when over GUI
+        if (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject())
+            return;
+
         if (Mouse.current.leftButton.wasPressedThisFrame)
         {
             startpos = GetMouseWorld();

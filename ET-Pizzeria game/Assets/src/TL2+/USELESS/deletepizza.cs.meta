@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: 954aebcffc772ff488b014c71266715a
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - currentPizza: {fileID: 2034929220221889421, guid: 4f6e8ffefeec8834ca24791a09412b6b,
+      type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

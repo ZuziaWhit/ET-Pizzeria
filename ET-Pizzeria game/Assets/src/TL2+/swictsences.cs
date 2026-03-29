@@ -10,7 +10,6 @@ public class swictsences : MonoBehaviour
             SceneManager.LoadScene(sceneName);
         }else{
             SceneManager.LoadScene(sceneName);
-            SceneManager.LoadScene("GUI", LoadSceneMode.Additive); 
         }
 
     }
