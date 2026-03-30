@@ -19,7 +19,9 @@ public class CutScreenManager : MonoBehaviour
     {
         //no clicks when over GUI
         if (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject())
+        {
             return;
+        }
 
         if (Mouse.current.leftButton.wasPressedThisFrame)
         {
@@ -37,7 +39,9 @@ public class CutScreenManager : MonoBehaviour
         {
             Vector2 current = GetMouseWorld();
             if (previewLine != null)
+            {
                 previewLine.SetPosition(1, ToV3(current));
+            }
         }
 
         if (Mouse.current.leftButton.wasReleasedThisFrame)
@@ -45,7 +49,9 @@ public class CutScreenManager : MonoBehaviour
             endpos = GetMouseWorld();
 
             if (previewLine != null)
-                previewLine.positionCount = 0;
+            {
+                previewLine.positionCount = 0;   
+            }
 
             PerformCut(startpos, endpos);
         }
@@ -67,7 +73,7 @@ public class CutScreenManager : MonoBehaviour
     {
         RaycastHit2D hit = Physics2D.Linecast(start, end, pizzaLayer);
 
-        if (Vector2.Distance(start, end) < 0.2f)
+        if (Vector2.Distance(start, end) < 0.5f)
         {
             Debug.Log("Cut too small, ignored");
             return;
@@ -80,20 +86,15 @@ public class CutScreenManager : MonoBehaviour
         }
 
         Pizza pizzaData = hit.collider.GetComponent<Pizza>();
-
         Transform pizza = hit.collider.transform;
 
         Vector2 center = pizza.position;
         float pizzaRadius = 2f;
-        
         Vector2 dir = (end - start).normalized;
-
         Vector2 f = start - center;
-
         float a = Vector2.Dot(dir, dir);
         float b = 2 * Vector2.Dot(f, dir);
         float c = Vector2.Dot(f, f) - pizzaRadius * pizzaRadius;
-
         float discriminant = b * b - 4 * a * c;
 
         if (discriminant < 0)
@@ -113,7 +114,7 @@ public class CutScreenManager : MonoBehaviour
         if (linePrefab == null)
         {
             Debug.LogError("Line Prefab NOT assigned!");
-            return;
+            //return;
         }
 
         GameObject lineObj = Instantiate(linePrefab, pizza);
@@ -133,7 +134,7 @@ public class CutScreenManager : MonoBehaviour
 
         if (ColorUtility.TryParseHtmlString("#FCFAE3", out cutColor))
         {
-            lr.material.color = cutColor;
+            lr.sharedMaterial.color = cutColor;
         }
 
         lr.sortingLayerName = "pizzaLayer";
@@ -148,7 +149,9 @@ public class CutScreenManager : MonoBehaviour
 
         PizzaSlice slice = pizza.GetComponent<PizzaSlice>();
         if (slice != null)
+        {
             slice.Slice(p1, p2);
+        }
         Debug.Log($"Freeform cut performed");
     }
 }

@@ -50,7 +50,7 @@ public class PizzaCutLengthBoundaryTest
         Vector2 center = pizza.transform.position;
         float radius = 2f;
 
-        // small cut (should NOT work)
+        //small cut (should NOT work)
         Debug.Log("small");
         Vector2 smallStart = center;
         Vector2 smallEnd = center + new Vector2(0.1f, 0.1f);
@@ -58,7 +58,7 @@ public class PizzaCutLengthBoundaryTest
         cutManager.PerformCut(smallStart, smallEnd);
         yield return null;
 
-        int afterSmall = cutManager.transform.childCount;
+        int afterSmall = pizza.transform.childCount;
         Assert.IsTrue(afterSmall == 0, "Small cuts should NOT create a line");
 
         // normal cut (should work)
@@ -69,8 +69,8 @@ public class PizzaCutLengthBoundaryTest
         cutManager.PerformCut(normalStart, normalEnd);
         yield return null;
 
-        int afterNormal = cutManager.transform.childCount;
-        Assert.IsTrue(afterNormal > afterSmall, "Normal cut should create a line");
+        int afterNormal = pizza.transform.childCount;
+        Assert.IsTrue(afterNormal > 0, "Normal cut should create a line" + afterNormal);
 
         // large cut (should still work)
         Debug.Log("large");
@@ -80,8 +80,8 @@ public class PizzaCutLengthBoundaryTest
         cutManager.PerformCut(largeStart, largeEnd);
         yield return null;
 
-        int afterLarge = cutManager.transform.childCount;
-        Assert.IsTrue(afterLarge > afterNormal, "Large cuts crossing pizza should work");
+        int afterLarge = pizza.transform.childCount;
+        Assert.IsTrue(afterLarge > 1, "Large cuts crossing pizza should work");
     }
 
     [TearDown]
