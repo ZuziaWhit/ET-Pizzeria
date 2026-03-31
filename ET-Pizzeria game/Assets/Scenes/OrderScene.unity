@@ -949,7 +949,7 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1298127489}
+  - component: {fileID: 1298127491}
   - component: {fileID: 1298127488}
   m_Layer: 5
   m_Name: OrderTicket
@@ -958,7 +958,37 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &1139193205
+--- !u!114 &1042642801
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1298127486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: -3504887416439439248, guid: 56425b2e0eaa62c4a80f1d1908bafa7b, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!1 &1298127486
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -966,17 +996,18 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1139193206}
-  - component: {fileID: 1139193208}
-  - component: {fileID: 1139193207}
-  m_Layer: 5
+  - component: {fileID: 1298127487}
+  - component: {fileID: 1298127489}
+  - component: {fileID: 1042642801}
+  - component: {fileID: 1298127490}
+  m_Layer: 0
   m_Name: OrderTicket
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1139193206
+  m_IsActive: 0
+--- !u!224 &1298127487
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -995,37 +1026,19 @@ RectTransform:
   m_AnchoredPosition: {x: 380, y: 100}
   m_SizeDelta: {x: 250, y: 400}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1139193207
+--- !u!114 &1298127488
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1139193205}
+  m_GameObject: {fileID: 1042642800}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Script: {fileID: 0}
   m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 5881267762159070946, guid: 35e79a334a9541e4fb48e92583a177d1, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &1139193208
+  m_EditorClassIdentifier: 
+--- !u!222 &1298127489
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1039,13 +1052,36 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1042642800}
+  m_GameObject: {fileID: 1298127486}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 0}
   m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &1298127489
+  m_EditorClassIdentifier: Assembly-CSharp::PizzaOrderGenerator
+  timeText: {fileID: 1527180409}
+  cutText: {fileID: 1854619961}
+  toppingsText: {fileID: 592920382}
+  ingredientDatabase:
+  - Pepperoni
+  - Mushroom
+  - Onion
+  - Sausage
+  - Bacon
+  - Extra Cheese
+  - Black Olives
+  - Green Peppers
+  - ExtraCheese
+  - BlackOlives
+  - GreenPeppers
+  cutTypes:
+  - 1
+  - 2
+  - 4
+  bakeTimes:
+  - 5s
+  - 10s
+  - 15s
+--- !u!4 &1298127491
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1060,7 +1096,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1309386449
+--- !u!1 &1527180407
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1591,7 +1627,7 @@ MonoBehaviour:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 1298127489}
+  - {fileID: 1298127491}
   - {fileID: 1987775921}
   - {fileID: 1661191503}
   - {fileID: 810234428}
@@ -1600,4 +1636,3 @@ SceneRoots:
   - {fileID: 155933190}
   - {fileID: 354385715}
   - {fileID: 1629696333}
-  - {fileID: 1309386451}
