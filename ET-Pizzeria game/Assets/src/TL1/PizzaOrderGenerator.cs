@@ -9,6 +9,7 @@ public class PizzaOrderGenerator : MonoBehaviour
     public TMP_Text cutText;
     public TMP_Text toppingsText;
 
+
     public string[] ingredientDatabase =
     {
         "Pepperoni",
