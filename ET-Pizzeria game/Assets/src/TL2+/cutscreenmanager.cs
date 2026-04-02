@@ -8,6 +8,15 @@ public class CutScreenManager : MonoBehaviour
     private Vector2 startpos;
     private Vector2 endpos;
 
+    private float pizzaRadius = 2f;
+    private float a = 0;
+    private float b = 0;
+    private float c = 0;
+    private float discriminant = 0;
+
+    private float t1 = 0;
+    private float t2 = 0;
+
     [Header("References")]
     public LayerMask pizzaLayer;
     public LineRenderer previewLine;  
@@ -89,13 +98,12 @@ public class CutScreenManager : MonoBehaviour
         Transform pizza = hit.collider.transform;
 
         Vector2 center = pizza.position;
-        float pizzaRadius = 2f;
         Vector2 dir = (end - start).normalized;
         Vector2 f = start - center;
-        float a = Vector2.Dot(dir, dir);
-        float b = 2 * Vector2.Dot(f, dir);
-        float c = Vector2.Dot(f, f) - pizzaRadius * pizzaRadius;
-        float discriminant = b * b - 4 * a * c;
+        a = Vector2.Dot(dir, dir);
+        b = 2 * Vector2.Dot(f, dir);
+        c = Vector2.Dot(f, f) - pizzaRadius * pizzaRadius;
+        discriminant = b * b - 4 * a * c;
 
         if (discriminant < 0)
         {
@@ -105,8 +113,8 @@ public class CutScreenManager : MonoBehaviour
 
         discriminant = Mathf.Sqrt(discriminant);
 
-        float t1 = (-b - discriminant) / (2 * a);
-        float t2 = (-b + discriminant) / (2 * a);
+        t1 = (-b - discriminant) / (2 * a);
+        t2 = (-b + discriminant) / (2 * a);
 
         Vector2 p1 = start + dir * t1;
         Vector2 p2 = start + dir * t2;

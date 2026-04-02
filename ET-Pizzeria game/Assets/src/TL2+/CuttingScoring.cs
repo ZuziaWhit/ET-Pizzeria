@@ -5,13 +5,16 @@ public class CuttingScoring : MonoBehaviour
 {
     private int scorePerCorrectCut = 10;
     private int penaltyPerExtraCut = -5;
-    //public Pizza pizza;
+    private int idealCuts = 8;
+    private int cuts = 0;
+    private int score = 0;
+    private int extraCuts = 0;
 
     public int CutScore(Pizza pizza)
     {
-        int idealCuts = 8; //Will call from Order/Endday somthing later
-        int cuts = pizza.GetCut();
-        int score = 0;
+        idealCuts = 8; //Will call from Order/Endday somthing later
+        cuts = pizza.GetCut();
+        score = 0;
 
         if (cuts == idealCuts)
         {
@@ -25,7 +28,7 @@ public class CuttingScoring : MonoBehaviour
         }
         else
         {
-            int extraCuts = cuts - idealCuts;
+            extraCuts = cuts - idealCuts;
             score = (idealCuts * scorePerCorrectCut) + (extraCuts * penaltyPerExtraCut);
             Debug.Log("Too many cuts! Score: " + score);
         }
