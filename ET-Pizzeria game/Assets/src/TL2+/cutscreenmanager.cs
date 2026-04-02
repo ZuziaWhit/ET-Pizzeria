@@ -18,9 +18,9 @@ public class CutScreenManager : MonoBehaviour
     private float t2 = 0;
 
     [Header("References")]
-    public LayerMask pizzaLayer;
-    public LineRenderer previewLine;  
-    public GameObject linePrefab;    
+    [SerializeField] private LayerMask pizzaLayer;
+    [SerializeField] private LineRenderer previewLine;  
+    [SerializeField] private GameObject linePrefab;    
 
     private List<LineRenderer> cutLines = new List<LineRenderer>();
 
@@ -155,11 +155,21 @@ public class CutScreenManager : MonoBehaviour
             pizzaData.AddCut();
         }
 
-        PizzaSlice slice = pizza.GetComponent<PizzaSlice>();
-        if (slice != null)
-        {
-            slice.Slice(p1, p2);
-        }
-        Debug.Log($"Freeform cut performed");
+        Debug.Log($"Pizza sliced from {start} to {end}");
+        //Debug.Log($"Freeform cut performed");
+    }
+
+//ONLY FOR TEST STUFF ------------------------------------------
+    public LayerMask getpizzaLayer()
+    {
+        return pizzaLayer;
+    }
+    public LineRenderer getpreviewLine()
+    {
+        return previewLine;
+    }
+    public GameObject getlinePrefab()
+    {
+        return linePrefab;
     }
 }

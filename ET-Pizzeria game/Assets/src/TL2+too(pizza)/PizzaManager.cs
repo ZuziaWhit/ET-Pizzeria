@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class PizzaManager : MonoBehaviour
 {
-    public GameObject pizzaPrefab;
+    [SerializeField] private GameObject pizzaPrefab;
     private GameObject currentPizza;
     private bool isSpawning = false;
 

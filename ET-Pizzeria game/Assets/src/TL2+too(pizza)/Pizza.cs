@@ -4,8 +4,8 @@ using UnityEngine;
 public class Pizza : MonoBehaviour
 {
     [Header("Pizza Data")]
-    public List<string> ingredients = new List<string>();
-    public float bakingTime = 0f;
+    public List<string> ingredients = new List<string>(); //Will become Private
+    public float bakingTime = 0f; //Will become Private
     private int numberCuts = 0;
 
     //This is to be use by the Baking Station
@@ -31,8 +31,19 @@ public class Pizza : MonoBehaviour
 
     public int GetCut()
     {
-        int freenumbercut = numberCuts;
         Debug.Log(numberCuts + " slices"); 
-        return freenumbercut;
+        return numberCuts;
+    }
+
+    public float GetBakeTime()
+    {
+        Debug.Log(bakingTime + " seconds"); 
+        return bakingTime;
+    }
+
+    public List<string> GetIngredients() //idk if this will work
+    {
+        Debug.Log(ingredients + " on the pizza"); 
+        return ingredients;
     }
 }

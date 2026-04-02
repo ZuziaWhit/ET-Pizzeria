@@ -6,8 +6,8 @@ using UnityEngine.TestTools;
 public class PizzaCutStressTest
 {
     private GameObject pizza;
-    private CutScreenManager cutManager;
-    private GameObject linePrefab;
+    private static CutScreenManager cutManager;
+    private static GameObject linePrefab = cutManager.getlinePrefab();
 
     [SetUp]
     public void Setup()
@@ -44,8 +44,8 @@ public class PizzaCutStressTest
         // create CutScreenManager
         GameObject managerObj = new GameObject("CutManager");
         cutManager = managerObj.AddComponent<CutScreenManager>();
-        cutManager.linePrefab = linePrefab;
-        cutManager.pizzaLayer = 1 << pizzaLayer; 
+        //cutManager.linePrefab = linePrefab;
+        //cutManager.pizzaLayer = 1 << pizzaLayer; 
     }
 
     [UnityTest]

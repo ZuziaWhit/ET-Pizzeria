@@ -6,9 +6,9 @@ using UnityEngine.TestTools;
 public class PizzaCutSmallBoundaryTest
 {
     private GameObject pizza;
-    private CutScreenManager cutManager;
-    //private GameObject linePrefab;
-    private int pizzaLayer;
+    private static CutScreenManager cutManager;
+    private static GameObject linePrefab = cutManager.getlinePrefab();
+    private int pizzaLayer = cutManager.getpizzaLayer();
 
     [SetUp]
     public void Setup()
@@ -44,7 +44,7 @@ public class PizzaCutSmallBoundaryTest
         GameObject managerObj = new GameObject("CutManager");
         cutManager = managerObj.AddComponent<CutScreenManager>();
         //cutManager.linePrefab = linePrefab;
-        cutManager.pizzaLayer = 1 << pizzaLayer;
+        //cutManager.pizzaLayer = 1 << pizzaLayer;
     }
 
     [UnityTest]

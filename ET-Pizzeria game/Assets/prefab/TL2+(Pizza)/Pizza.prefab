@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2114845187507023130}
   - component: {fileID: 5524712292046708117}
-  - component: {fileID: 2567572812111725709}
   - component: {fileID: 7575174215741474132}
   - component: {fileID: -30285026460839918}
   - component: {fileID: -8654745072209970966}
@@ -95,18 +94,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!114 &2567572812111725709
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2034929220221889421}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fddb844d40b1a8644b87ff4a9ef3b8e5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PizzaSlice
 --- !u!58 &7575174215741474132
 CircleCollider2D:
   m_ObjectHideFlags: 0
