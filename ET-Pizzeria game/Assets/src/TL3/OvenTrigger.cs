@@ -21,6 +21,9 @@ public class OvenTrigger : MonoBehaviour
         {
             pizza.canBake = false;
             pizza.isInOven = false;
+
+            pizza.GetComponent<PizzaBaking>().StopBakingAudio();
+
             pizza = null;
         }
     }
