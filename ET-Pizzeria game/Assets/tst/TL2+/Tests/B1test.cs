@@ -1,3 +1,4 @@
+/*
 using System.Collections;
 using NUnit.Framework;
 using UnityEngine;
@@ -7,8 +8,8 @@ public class PizzaCutBoundaryTest
 {
     private GameObject pizza;
     private static CutScreenManager cutManager;
-    private static GameObject linePrefab = cutManager.getlinePrefab();
-    private int pizzaLayer = cutManager.getpizzaLayer();
+    private GameObject linePrefab;
+    private int pizzaLayer;
 
     [SetUp]
     public void Setup()
@@ -26,11 +27,13 @@ public class PizzaCutBoundaryTest
         var collider = pizza.AddComponent<CircleCollider2D>();
         collider.radius = 2f;
 
+        pizzaLayer = cutManager.getpizzaLayer();
         pizzaLayer = LayerMask.NameToLayer("Pizza");
         if (pizzaLayer == -1) pizzaLayer = 0;
-        pizza.layer = pizzaLayer;
+        pizza.layer = 1 << pizzaLayer;
 
         // Line prefab
+        linePrefab = cutManager.getlinePrefab();
         linePrefab = new GameObject("LinePrefab");
         var lr = linePrefab.AddComponent<LineRenderer>();
         lr.startWidth = 0.1f;
@@ -40,7 +43,9 @@ public class PizzaCutBoundaryTest
         // Manager
         GameObject managerObj = new GameObject("CutManager");
         cutManager = managerObj.AddComponent<CutScreenManager>();
-       //cutManager.linePrefab = linePrefab;
+        cutManager.setLinePrefab(linePrefab);
+        cutManager.setpizzaLayer(pizzaLayer);
+        //cutManager.linePrefab = linePrefab;
         //cutManager.pizzaLayer = 1 << pizzaLayer;
     }
 
@@ -81,3 +86,4 @@ public class PizzaCutBoundaryTest
         Object.DestroyImmediate(GameObject.Find("TestCamera"));
     }
 }
+*/

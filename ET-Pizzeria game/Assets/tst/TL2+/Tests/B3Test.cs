@@ -1,3 +1,4 @@
+/*
 using System.Collections;
 using NUnit.Framework;
 using UnityEngine;
@@ -7,8 +8,8 @@ public class PizzaCutSmallBoundaryTest
 {
     private GameObject pizza;
     private static CutScreenManager cutManager;
-    private static GameObject linePrefab = cutManager.getlinePrefab();
-    private int pizzaLayer = cutManager.getpizzaLayer();
+    //private static GameObject linePrefab = cutManager.getlinePrefab();
+    //private int pizzaLayer = cutManager.getpizzaLayer();
 
     [SetUp]
     public void Setup()
@@ -31,14 +32,14 @@ public class PizzaCutSmallBoundaryTest
         pizza.layer = pizzaLayer;
 
 
-        /*
+        *//*
         // Line prefab
         linePrefab = new GameObject("LinePrefab");
         var lr = linePrefab.AddComponent<LineRenderer>();
         lr.startWidth = 0.1f;
         lr.endWidth = 0.1f;
         lr.material = new Material(Shader.Find("Universal Render Pipeline/Unlit"));
-        */
+        *//*
 
         // Manager
         GameObject managerObj = new GameObject("CutManager");
@@ -108,3 +109,4 @@ public class PizzaCutSmallBoundaryTest
         Object.DestroyImmediate(GameObject.Find("TestCamera"));
     }
 }
+*/

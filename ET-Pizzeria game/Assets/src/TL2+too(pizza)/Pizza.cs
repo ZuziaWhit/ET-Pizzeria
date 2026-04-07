@@ -26,7 +26,7 @@ public class Pizza : MonoBehaviour
     public void AddCut()
     {
         numberCuts++;
-        Debug.Log("Pizza cut into " + numberCuts + " slices");
+        //Debug.Log("Pizza cut into " + numberCuts + " slices");
     }
 
     public int GetCut()

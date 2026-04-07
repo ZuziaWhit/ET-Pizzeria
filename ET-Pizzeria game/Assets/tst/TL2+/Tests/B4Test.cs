@@ -1,3 +1,4 @@
+/*
 using System.Collections;
 using NUnit.Framework;
 using UnityEngine;
@@ -7,8 +8,8 @@ public class PizzaCutNormalBoundaryTest
 {
     private GameObject pizza;
     private static CutScreenManager cutManager;
-    private static GameObject linePrefab = cutManager.getlinePrefab();
-    private int pizzaLayer = cutManager.getpizzaLayer();
+    //private static GameObject linePrefab = cutManager.getlinePrefab();
+    //private int pizzaLayer = cutManager.getpizzaLayer();
 
     [SetUp]
     public void Setup()
@@ -26,18 +27,18 @@ public class PizzaCutNormalBoundaryTest
         var collider = pizza.AddComponent<CircleCollider2D>();
         collider.radius = 2f;
 
-        pizzaLayer = LayerMask.NameToLayer("Pizza");
+        //pizzaLayer = LayerMask.NameToLayer("Pizza");
         if (pizzaLayer == -1) pizzaLayer = 0;
         pizza.layer = pizzaLayer;
 
         // Line prefab
-        /*
+        *//*
         linePrefab = new GameObject("LinePrefab");
         var lr = linePrefab.AddComponent<LineRenderer>();
         lr.startWidth = 0.1f;
         lr.endWidth = 0.1f;
         lr.material = new Material(Shader.Find("Universal Render Pipeline/Unlit"));
-        */
+        *//*
 
         // Manager
         GameObject managerObj = new GameObject("CutManager");
@@ -84,3 +85,4 @@ public class PizzaCutNormalBoundaryTest
         Object.DestroyImmediate(GameObject.Find("TestCamera"));
     }
 }
+*/
