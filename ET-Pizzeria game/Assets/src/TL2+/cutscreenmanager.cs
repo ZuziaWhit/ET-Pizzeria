@@ -9,6 +9,7 @@ public class CutScreenManager : MonoBehaviour
     private Vector2 endpos;
 
     private float pizzaRadius = 2f;
+    private PizzaCutColor cutColorProvider;
 
     [Header("References")]
     [SerializeField] private LayerMask pizzaLayer;
@@ -17,8 +18,15 @@ public class CutScreenManager : MonoBehaviour
 
     private List<LineRenderer> cutLines = new List<LineRenderer>();
 
+    void Awake()
+    {
+        cutColorProvider = new DefaultColor();
+    }
+    
+
     void Update()
     {
+
         if (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject())
             return;
 
@@ -28,6 +36,7 @@ public class CutScreenManager : MonoBehaviour
 
             if (previewLine != null)
             {
+                previewLine.enabled = true;
                 previewLine.positionCount = 2;
                 previewLine.SetPosition(0, ToV3(startpos));
                 previewLine.SetPosition(1, ToV3(startpos));
@@ -36,9 +45,14 @@ public class CutScreenManager : MonoBehaviour
 
         if (Mouse.current.leftButton.isPressed)
         {
-            Vector2 current = GetMouseWorld();
-            if (previewLine != null)
+            if (previewLine != null && previewLine.positionCount == 2)
+            {
+                Vector2 current = GetMouseWorld();
                 previewLine.SetPosition(1, ToV3(current));
+            }
+            // Vector2 current = GetMouseWorld();
+            // if (previewLine != null)
+            //     previewLine.SetPosition(1, ToV3(current));
         }
 
         if (Mouse.current.leftButton.wasReleasedThisFrame)
@@ -132,18 +146,12 @@ public class CutScreenManager : MonoBehaviour
         lr.startWidth = 0.06f;
         lr.endWidth = 0.06f;
         
-        Color cutColor = GetCutColor();
+        Color cutColor = cutColorProvider.GetCutColor();
         lr.startColor = cutColor;
         lr.endColor = cutColor;
         lr.sortingLayerName = "pizzaLayer";
         lr.sortingOrder = 100;
 
         cutLines.Add(lr);
-    }
-
-    public virtual Color GetCutColor()
-    {
-        Debug.Log("Basic form");
-        return Color.red;
     }
 }

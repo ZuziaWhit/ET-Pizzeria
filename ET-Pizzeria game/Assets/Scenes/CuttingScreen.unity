@@ -119,55 +119,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &395160719
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 395160721}
-  - component: {fileID: 395160720}
-  m_Layer: 0
-  m_Name: PizzaCutManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &395160720
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 395160719}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 435c428ec921c2947a8edc2f7030bc12, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: TL2+runtime::PizzaCutManager
-  pizzaLayer:
-    serializedVersion: 2
-    m_Bits: 1024
-  previewLine: {fileID: -7545532061779924963, guid: f1a469ce6213e6048883f282903d172d, type: 3}
-  linePrefab: {fileID: 4669147067542138737, guid: f1a469ce6213e6048883f282903d172d, type: 3}
---- !u!4 &395160721
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 395160719}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &471003656
 GameObject:
   m_ObjectHideFlags: 0
@@ -179,6 +130,7 @@ GameObject:
   - component: {fileID: 471003659}
   - component: {fileID: 471003658}
   - component: {fileID: 471003660}
+  - component: {fileID: 471003661}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -296,6 +248,72 @@ MonoBehaviour:
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
   m_Version: 2
+--- !u!114 &471003661
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 471003656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa9d40a7aa7b5a348bbc7ff3eeb8373c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: TL2+runtime::CutScreenManager
+  pizzaLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  previewLine: {fileID: -7545532061779924963, guid: f1a469ce6213e6048883f282903d172d, type: 3}
+  linePrefab: {fileID: 4669147067542138737, guid: f1a469ce6213e6048883f282903d172d, type: 3}
+--- !u!1 &1927278294
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1927278296}
+  - component: {fileID: 1927278295}
+  m_Layer: 0
+  m_Name: CutScreenManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1927278295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1927278294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa9d40a7aa7b5a348bbc7ff3eeb8373c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: TL2+runtime::CutScreenManager
+  pizzaLayer:
+    serializedVersion: 2
+    m_Bits: 1024
+  previewLine: {fileID: -7545532061779924963, guid: f1a469ce6213e6048883f282903d172d, type: 3}
+  linePrefab: {fileID: 4669147067542138737, guid: f1a469ce6213e6048883f282903d172d, type: 3}
+--- !u!4 &1927278296
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1927278294}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &5022896842181002016
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -415,6 +433,6 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 471003659}
-  - {fileID: 395160721}
+  - {fileID: 1927278296}
   - {fileID: 6753796064598167594}
   - {fileID: 5022896842181002016}
