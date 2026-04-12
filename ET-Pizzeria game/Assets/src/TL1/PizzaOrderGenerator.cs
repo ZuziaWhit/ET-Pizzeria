@@ -59,7 +59,7 @@ public class PizzaOrderGenerator : MonoBehaviour
         return order;
     }
 
-    private void Start()
+    public void Start()
     {
         PizzaOrder order = GenerateRandomOrder();
         StartCoroutine(DisplayOrderRoutine(order));
