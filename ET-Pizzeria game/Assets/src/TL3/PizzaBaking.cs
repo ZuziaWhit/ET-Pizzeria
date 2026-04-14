@@ -1,5 +1,6 @@
 using UnityEngine;
-
+// This is the main class for baking logic. This class determins the amount of time a pizza has been baking for and sets pizza state. 
+// This also begins audio and makes debug logs for easier bug hunting.
 public class PizzaBaking : MonoBehaviour
 {
     public float currentBakeTime = 0f;
@@ -12,24 +13,39 @@ public class PizzaBaking : MonoBehaviour
 
     public bool canBake = false;
 
+    private Pizza pizza;
+    private AudioSource audioSource;
+
+    void Start()
+    {
+        pizza = GetComponent<Pizza>();
+        audioSource = FindObjectOfType<AudioSource>();
+    }
+
     void Update()
     {
-        if (isInOven && !isBurnt)
-        {
-            currentBakeTime += Time.deltaTime;
-            Debug.Log("Bake Time: " + currentBakeTime);
+        if (!isInOven || isBurnt) return;
 
-            if (currentBakeTime >= burntTime)
-            {
-                isBurnt = true;
-                isCooked = false;
-                Debug.Log("Pizza Burnt!");
-            }
-            else if (currentBakeTime >= cookedTime)
-            {
-                isCooked = true;
-                Debug.Log("Pizza Cooked!");
-            }
+        currentBakeTime += Time.deltaTime;
+
+        if (pizza != null)
+        {
+            pizza.bakingTime += Time.deltaTime;
+        }
+
+        Debug.Log("Bake Time: " + currentBakeTime);
+
+        if (currentBakeTime >= burntTime)
+        {
+            isBurnt = true;
+            audioSource.Stop();
+            isCooked = false;
+            Debug.Log("Pizza Burnt!");
+        }
+        else if (currentBakeTime >= cookedTime)
+        {
+            isCooked = true;
+            Debug.Log("Pizza Cooked!");
         }
     }
 
@@ -53,18 +69,32 @@ public class PizzaBaking : MonoBehaviour
             isBurnt = false;
         }
     }
+
     public void StartBaking()
-{
-    Debug.Log("Bake Button Pressed!");
+    {
+        Debug.Log("Bake Button Pressed!");
 
-    if (!canBake) {
-
-    Debug.Log("Cannot Bake Here");
-    return;
+        if (!canBake || isBurnt)
+        {
+            Debug.Log("Cannot Bake Here");
+            return;
         }
-    isInOven = true;
-    currentBakeTime = 0f;
-    isCooked = false;
-    isBurnt = false;
+
+        isInOven = true;
+        currentBakeTime = 0f;
+
+        if (pizza != null)
+            pizza.bakingTime = 0f;
+
+        isCooked = false;
+        isBurnt = false;
+
+        audioSource.Play();
+    }
+
+    public void StopBakingAudio()
+    {
+        if (audioSource != null && audioSource.isPlaying)
+            audioSource.Stop();
     }
 }
