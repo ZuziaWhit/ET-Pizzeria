@@ -419,7 +419,7 @@ GameObject:
   m_Component:
   - component: {fileID: 411979667}
   - component: {fileID: 411979666}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Pizza
   m_TagString: Untagged
   m_Icon: {fileID: 0}

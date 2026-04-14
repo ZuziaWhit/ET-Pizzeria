@@ -4,7 +4,9 @@
     "references": [
         "UnityEngine.TestRunner",
         "UnityEditor.TestRunner",
-        "TL2+runtime"
+        "TL2+runtime",
+        "Pizza",
+        "TL2+prefab"
     ],
     "includePlatforms": [
         "Editor"

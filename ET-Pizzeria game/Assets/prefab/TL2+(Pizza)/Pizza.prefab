@@ -10,13 +10,12 @@ GameObject:
   m_Component:
   - component: {fileID: 2114845187507023130}
   - component: {fileID: 5524712292046708117}
-  - component: {fileID: 2567572812111725709}
   - component: {fileID: 7575174215741474132}
   - component: {fileID: -30285026460839918}
-  - component: {fileID: -3585414689644346207}
+  - component: {fileID: -8654745072209970966}
   m_Layer: 10
   m_Name: Pizza
-  m_TagString: Untagged
+  m_TagString: Pizza
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -83,7 +82,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 848347191
   m_SortingLayer: 2
-  m_SortingOrder: 0
+  m_SortingOrder: 50
   m_MaskInteraction: 0
   m_Sprite: {fileID: -2413806693520163455, guid: 9b0a332c31d327b49aebb9dbaba4493f, type: 3}
   m_Color: {r: 0.9547169, g: 0.61091095, b: 0.21436086, a: 1}
@@ -95,18 +94,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!114 &2567572812111725709
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2034929220221889421}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fddb844d40b1a8644b87ff4a9ef3b8e5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PizzaSlice
 --- !u!58 &7575174215741474132
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -124,7 +111,7 @@ CircleCollider2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_LayerOverridePriority: 0
+  m_LayerOverridePriority: 10
   m_ForceSendLayers:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -157,8 +144,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Pizza::Pizza
   ingredients: []
   bakingTime: 0
-  numberCuts: 0
---- !u!114 &-3585414689644346207
+--- !u!114 &-8654745072209970966
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -167,7 +153,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 2034929220221889421}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d01c06e9c25f1ee4f9bfd01cac4fb712, type: 3}
+  m_Script: {fileID: 11500000, guid: c5a140c1dbb5f0b44bdd51e9ca1285b9, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: TL2+runtime::DontDestory
-  objectIndex: 1
+  m_EditorClassIdentifier: Pizza::SceneVisibility

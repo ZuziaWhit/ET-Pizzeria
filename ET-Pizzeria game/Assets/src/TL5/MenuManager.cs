@@ -1,12 +1,11 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
-    public string sceneName = "ToppingScreen";
+    public MenuBase currentMenu;
 
-    public void StartGame()
+    public void ExecutePrimaryAction()
     {
-        SceneManager.LoadScene(sceneName);
+        currentMenu.HandlePrimaryAction();
     }
 }

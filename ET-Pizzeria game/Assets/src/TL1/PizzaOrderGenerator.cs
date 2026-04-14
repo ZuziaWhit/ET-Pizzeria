@@ -9,6 +9,7 @@ public class PizzaOrderGenerator : MonoBehaviour
     public TMP_Text cutText;
     public TMP_Text toppingsText;
 
+
     public string[] ingredientDatabase =
     {
         "Pepperoni",
@@ -38,7 +39,10 @@ public class PizzaOrderGenerator : MonoBehaviour
 
         HashSet<int> selectedIngredients = new HashSet<int>();
 
-        while (selectedIngredients.Count < 3)
+        // Random count between 3 and 6
+        int ingredientCount = Random.Range(3, 7); // 7 is exclusive
+
+        while (selectedIngredients.Count < ingredientCount)
         {
             int randomIndex = Random.Range(0, ingredientDatabase.Length);
             selectedIngredients.Add(randomIndex);
@@ -55,10 +59,11 @@ public class PizzaOrderGenerator : MonoBehaviour
         return order;
     }
 
-    private void Start()
+    public void Start()
     {
         PizzaOrder order = GenerateRandomOrder();
         StartCoroutine(DisplayOrderRoutine(order));
+        PizzaGameData.SetOrder(order.ingredients, order.bakeTime, order.cutType); //added by noah for scoring
     }
 
     IEnumerator DisplayOrderRoutine(PizzaOrder order)
@@ -68,18 +73,18 @@ public class PizzaOrderGenerator : MonoBehaviour
         timeText.text = "";
         cutText.text = "";
 
-        // 1️⃣ Show toppings one by one
+        // Show toppings one by one
         foreach (string ingredient in order.ingredients)
         {
             toppingsText.text += ingredient + "\n";
             yield return new WaitForSeconds(1.5f);
         }
 
-        // 2️⃣ Show bake time
+        // Show bake time
         timeText.text = "Bake Time: " + order.bakeTime;
         yield return new WaitForSeconds(1.5f);
 
-        // 3️⃣ Show cut type
+        // Show cut type
         cutText.text = "Cut Type: " + order.cutType;
     }
 }

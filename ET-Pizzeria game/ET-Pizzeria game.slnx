@@ -2,8 +2,8 @@
   <Project Path="TL2BoundaryTests.csproj" />
   <Project Path="ScoreAssembly.csproj" />
   <Project Path="TL2+runtime.csproj" />
+  <Project Path="scoring.csproj" />
   <Project Path="TL2StressTests.csproj" />
-  <Project Path="PlayMode.csproj" />
   <Project Path="Assembly-CSharp.csproj" />
   <Project Path="Tests.csproj" />
   <Project Path="TL4StressTests.csproj" />

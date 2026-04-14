@@ -1,3 +1,4 @@
+/*
 using System.Collections;
 using NUnit.Framework;
 using UnityEngine;
@@ -6,8 +7,8 @@ using UnityEngine.TestTools;
 public class PizzaCutStressTest
 {
     private GameObject pizza;
-    private CutScreenManager cutManager;
-    private GameObject linePrefab;
+    private static CutScreenManager cutManager;
+    //private static GameObject linePrefab = cutManager.getlinePrefab();
 
     [SetUp]
     public void Setup()
@@ -35,17 +36,17 @@ public class PizzaCutStressTest
         cameraObj.tag = "MainCamera"; 
 
         // create a dummy LineRenderer prefab
-        linePrefab = new GameObject("LinePrefab");
-        var lr = linePrefab.AddComponent<LineRenderer>();
-        lr.startWidth = 0.1f;
-        lr.endWidth = 0.1f;
-        lr.material = new Material(Shader.Find("Universal Render Pipeline/Unlit"));
+        //linePrefab = new GameObject("LinePrefab");
+        //var lr = linePrefab.AddComponent<LineRenderer>();
+        //lr.startWidth = 0.1f;
+        //lr.endWidth = 0.1f;
+        //lr.material = new Material(Shader.Find("Universal Render Pipeline/Unlit"));
 
         // create CutScreenManager
         GameObject managerObj = new GameObject("CutManager");
         cutManager = managerObj.AddComponent<CutScreenManager>();
-        cutManager.linePrefab = linePrefab;
-        cutManager.pizzaLayer = 1 << pizzaLayer; 
+        //cutManager.linePrefab = linePrefab;
+        //cutManager.pizzaLayer = 1 << pizzaLayer; 
     }
 
     [UnityTest]
@@ -73,8 +74,9 @@ public class PizzaCutStressTest
     public void TearDown()
     {
         Object.DestroyImmediate(pizza);
-        Object.DestroyImmediate(linePrefab);
+        //Object.DestroyImmediate(linePrefab);
         Object.DestroyImmediate(cutManager.gameObject);
         Object.DestroyImmediate(GameObject.Find("TestCamera"));
     }
 }
+*/

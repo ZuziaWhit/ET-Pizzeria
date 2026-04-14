@@ -1,3 +1,16 @@
 {
-	"name": "Pizza"
+    "name": "Pizza",
+    "rootNamespace": "",
+    "references": [
+        "GUID:6950c8f08bf637e6184c143591863f1b"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
 }
