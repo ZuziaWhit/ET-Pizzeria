@@ -13,7 +13,7 @@ public class PizzaOrderGeneratorTests
         generator = obj.AddComponent<PizzaOrderGenerator>();
     }
 
-    // ✅ Boundary Test 1: Ingredient Count + Uniqueness
+    // Boundary Test 1: Ingredient Count + Uniqueness
     [Test]
     public void IngredientCount_ShouldBeExactlyThree_AndUnique()
     {
@@ -25,7 +25,7 @@ public class PizzaOrderGeneratorTests
         Assert.AreEqual(3, unique.Count, "Ingredients are not unique");
     }
 
-    // ✅ Boundary Test 2: Valid Cut and Bake Values
+    // Boundary Test 2: Valid Cut and Bake Values
     [Test]
     public void GeneratedValues_ShouldBeValid()
     {
@@ -38,7 +38,7 @@ public class PizzaOrderGeneratorTests
         Assert.Contains(order.bakeTime, validTimes);
     }
 
-    // ✅ Stress Test: 500 iterations
+    // Stress Test: 500 iterations
     [Test]
     public void StressTest_500Orders_ShouldAllBeValid()
     {
