@@ -2,15 +2,6 @@
 // ─────────────────────────────────────────────────────────────────────────────
 // Static data bridge — stores primitive types only so the 'scoring' assembly
 // does NOT need to reference TL1 or Pizza assemblies, avoiding circular deps.
-//
-// HOW TO WIRE IT UP (two small additions, no other script changes needed):
-//
-//   In PizzaOrderGenerator.Start(), after GenerateRandomOrder():
-//       PizzaGameData.SetOrder(order.ingredients, order.bakeTime, order.cutType);
-//
-//   In PizzaManager.SUbmitPizza(), before LoadScene():
-//       Pizza p = currentPizza.GetComponent<Pizza>();
-//       PizzaGameData.SetPizza(p.GetIngredients(), p.GetBakeTime(), p.GetCut());
 // ─────────────────────────────────────────────────────────────────────────────
 
 using System.Collections.Generic;

@@ -1453,10 +1453,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ScoreScreenUI
   starsText: {fileID: 0}
-  toppingScoreText: {fileID: 0}
-  bakeScoreText: {fileID: 0}
-  cutScoreText: {fileID: 0}
-  averageScoreText: {fileID: 0}
+  toppingScoreText: {fileID: 1613233249}
+  bakeScoreText: {fileID: 1445235170}
+  cutScoreText: {fileID: 2092099310}
+  averageScoreText: {fileID: 1763054191}
   detailText: {fileID: 0}
   starImages: []
   starFilledSprite: {fileID: 0}
