@@ -1,5 +1,5 @@
 using UnityEngine;
-
+// This class allows the user to drag the pizza
 public class DragPizza : MonoBehaviour
 {
     private Vector3 offset;

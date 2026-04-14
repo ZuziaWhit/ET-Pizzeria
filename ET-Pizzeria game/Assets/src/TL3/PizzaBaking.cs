@@ -1,5 +1,6 @@
 using UnityEngine;
-
+// This is the main class for baking logic. This class determins the amount of time a pizza has been baking for and sets pizza state. 
+// This also begins audio and makes debug logs for easier bug hunting.
 public class PizzaBaking : MonoBehaviour
 {
     public float currentBakeTime = 0f;

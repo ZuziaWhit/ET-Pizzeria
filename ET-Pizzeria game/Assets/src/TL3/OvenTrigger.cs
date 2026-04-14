@@ -1,5 +1,5 @@
 using UnityEngine;
-
+// This script detects and monitors when a pizza enters and exits the oven and ends audio when a pizza exits.
 public class OvenTrigger : MonoBehaviour
 {
     private PizzaBaking pizza;

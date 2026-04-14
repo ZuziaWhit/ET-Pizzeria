@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
-
+// This class fills the bake timer bar at the top and sets it to different colors. 
 public class BakeProgressUI : MonoBehaviour
 {
     public PizzaBaking baking;
