@@ -63,6 +63,7 @@ public class PizzaOrderGenerator : MonoBehaviour
     {
         PizzaOrder order = GenerateRandomOrder();
         StartCoroutine(DisplayOrderRoutine(order));
+        PizzaGameData.SetOrder(order.ingredients, order.bakeTime, order.cutType); //added by noah for scoring
     }
 
     IEnumerator DisplayOrderRoutine(PizzaOrder order)
