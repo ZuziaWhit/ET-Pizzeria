@@ -3,24 +3,40 @@ using System.Collections;
 using System.Collections.Generic;
 
 
+/*public class Toppings
+{
+    public class pepperoni
+    {
+        public GameObject pepperoniPrefab;
+    }
+}
+*/
 public class ToppingController : MonoBehaviour
 {
     /* ============================
        1. DRAGGING (Your Original Code)
        ============================ */
     [SerializeField] private bool isDragging = false;
-
+    GameObject pepperoni_clone;
     void Update()
     {
+        
         if (isDragging)
         {
-            transform.position = (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            
+            pepperoni_clone.transform.position = (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition);
         }
     }
 
     void OnMouseDown()
     {
+        Debug.Log("Mouse clicked!");
+        pepperoni_clone = Instantiate(pepperoniPrefab);
+        pepperoni_clone.transform.position = new Vector2(-6f, 1.7f); //NEED TO CHANGE TO MAKE SURE IT IS SAME PLACE ON EVERY SCREEN -ET
+        pepperoni_clone.transform.rotation = Quaternion.identity;
         isDragging = !isDragging;
+
+
     }
 
 
