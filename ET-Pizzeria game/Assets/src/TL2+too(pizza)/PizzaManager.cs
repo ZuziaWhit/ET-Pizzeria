@@ -23,7 +23,7 @@ public class PizzaManager : MonoBehaviour
         }
 
         currentPizza = Instantiate(pizzaPrefab);
-        currentPizza.transform.position = new Vector2(0, 0);
+        currentPizza.transform.position = new Vector2(-1.75f, -0.5f); //NEED TO CHANGE TO MAKE SURE IT IS SAME PLACE ON EVERY SCREEN -ET
         currentPizza.transform.rotation = Quaternion.identity;
 
         isSpawning = false;
