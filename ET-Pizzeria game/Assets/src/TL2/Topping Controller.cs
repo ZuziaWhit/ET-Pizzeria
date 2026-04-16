@@ -34,9 +34,13 @@ public class ToppingController : MonoBehaviour
         pepperoni_clone = Instantiate(pepperoniPrefab);
         pepperoni_clone.transform.position = new Vector2(-6f, 1.7f); //NEED TO CHANGE TO MAKE SURE IT IS SAME PLACE ON EVERY SCREEN -ET
         pepperoni_clone.transform.rotation = Quaternion.identity;
-        isDragging = !isDragging;
+        isDragging = true;
 
 
+    }
+    void OnMouseUp()
+    {
+        isDragging = false;
     }
 
 

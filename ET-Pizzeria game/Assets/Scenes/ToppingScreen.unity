@@ -575,11 +575,27 @@ Transform:
   - {fileID: 868470212}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 64.173, y: 0, z: 0}
---- !u!4 &1166312320 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7370953967931127351, guid: 85eb92cc4738a44c5ac311c31b23745d, type: 3}
-  m_PrefabInstance: {fileID: 1316580140879799735}
+--- !u!1 &1295020755 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1623456698024232241, guid: ff9d7811127b04ccc892d0440b8f3003, type: 3}
+  m_PrefabInstance: {fileID: 1813493037}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1295020760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1295020755}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb2d689340bf94dab8b28f5345a84796, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: TL2.Test::ToppingController
+  isDragging: 0
+  maxToppings: 20
+  pepperoniPrefab: {fileID: 1623456698024232241, guid: ff9d7811127b04ccc892d0440b8f3003, type: 3}
+  spawnPoint: {fileID: 7370953967931127351, guid: 85eb92cc4738a44c5ac311c31b23745d, type: 3}
 --- !u!1 &1767975207
 GameObject:
   m_ObjectHideFlags: 0
@@ -777,18 +793,13 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: 1926466135
       objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: spawnPoint
-      value: 
-      objectReference: {fileID: 1166312320}
-    - target: {fileID: 0}
-      propertyPath: pepperoniPrefab
-      value: 
-      objectReference: {fileID: 1623456698024232241, guid: ff9d7811127b04ccc892d0440b8f3003, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1623456698024232241, guid: ff9d7811127b04ccc892d0440b8f3003, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1295020760}
   m_SourcePrefab: {fileID: 100100000, guid: ff9d7811127b04ccc892d0440b8f3003, type: 3}
 --- !u!1 &2123997646
 GameObject:
@@ -928,69 +939,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 85eb92cc4738a44c5ac311c31b23745d, type: 3}
---- !u!1001 &8577511439255592013
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1763040415307496221, guid: d7dbaf485b0da4423b325c9eeae40656, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1763040415307496221, guid: d7dbaf485b0da4423b325c9eeae40656, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1763040415307496221, guid: d7dbaf485b0da4423b325c9eeae40656, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1763040415307496221, guid: d7dbaf485b0da4423b325c9eeae40656, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1763040415307496221, guid: d7dbaf485b0da4423b325c9eeae40656, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1763040415307496221, guid: d7dbaf485b0da4423b325c9eeae40656, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1763040415307496221, guid: d7dbaf485b0da4423b325c9eeae40656, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1763040415307496221, guid: d7dbaf485b0da4423b325c9eeae40656, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1763040415307496221, guid: d7dbaf485b0da4423b325c9eeae40656, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1763040415307496221, guid: d7dbaf485b0da4423b325c9eeae40656, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3648357668093677199, guid: d7dbaf485b0da4423b325c9eeae40656, type: 3}
-      propertyPath: m_Name
-      value: Topping Controller
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: d7dbaf485b0da4423b325c9eeae40656, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1767975210}
-  - {fileID: 8577511439255592013}
   - {fileID: 411979667}
   - {fileID: 1093374272}
   - {fileID: 1813493037}
