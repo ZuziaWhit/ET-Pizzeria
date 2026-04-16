@@ -25,12 +25,12 @@ public class DefaultColor : PizzaCutColor
     }
 }
 
-public class GreenColor : PizzaCutColor
-{
-    public override Color GetCutColor()
-    {
-        Debug.Log("Override take over!");
+// public class GreenColor : PizzaCutColor
+// {
+//     public override Color GetCutColor()
+//     {
+//         Debug.Log("Override take over!");
 
-        return Color.green;
-    }
-}
+//         return Color.green;
+//     }
+// }
