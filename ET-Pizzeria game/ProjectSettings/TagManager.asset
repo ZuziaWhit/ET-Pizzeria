@@ -48,7 +48,7 @@ TagManager:
   - name: pizzaLayer
     uniqueID: 848347191
     locked: 0
-  - name: toppingLayer
+  - name: toppingLayer_1
     uniqueID: 1926466135
     locked: 0
   - name: Text

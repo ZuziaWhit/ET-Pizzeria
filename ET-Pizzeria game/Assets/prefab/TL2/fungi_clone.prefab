@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1623456698024232241
+--- !u!1 &8709719197378850078
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,40 +8,39 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1388195005250604503}
-  - component: {fileID: 4443161657051681397}
-  - component: {fileID: 8475179317644679294}
-  - component: {fileID: 7771646486657291397}
+  - component: {fileID: 3917584765008857525}
+  - component: {fileID: 7354539454478057771}
+  - component: {fileID: -2486240562104365913}
   m_Layer: 0
-  m_Name: pepperoni
+  m_Name: fungi_clone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1388195005250604503
+--- !u!4 &3917584765008857525
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1623456698024232241}
+  m_GameObject: {fileID: 8709719197378850078}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.08, y: -1.53, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 2.27, y: 1.71, z: 0}
+  m_LocalScale: {x: 0.15, y: 0.15, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &4443161657051681397
+--- !u!212 &7354539454478057771
 SpriteRenderer:
   serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1623456698024232241}
+  m_GameObject: {fileID: 8709719197378850078}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -83,23 +82,23 @@ SpriteRenderer:
   m_SortingLayer: 3
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Sprite: {fileID: -5099292496197868168, guid: 52f7a470923c84872b88e1efc2f113b3, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 5.12, y: 5.12}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!58 &8475179317644679294
+--- !u!58 &-2486240562104365913
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1623456698024232241}
+  m_GameObject: {fileID: 8709719197378850078}
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
@@ -128,23 +127,4 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 0.5
---- !u!114 &7771646486657291397
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1623456698024232241}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb2d689340bf94dab8b28f5345a84796, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: TL2.Test::ToppingController
-  isDragging: 0
-  toppingPrefab: {fileID: 1623456698024232241, guid: cb41e7ba48ec54bf2be9abb99ffaab66, type: 3}
-  pizzaCenter: {fileID: 8244348120068930079, guid: e819e442b24ef4ad88508f786ea0e8c7, type: 3}
-  outerRadius: 1.8
-  innerRadius: 0.9
-  maxToppings: 20
-  spawnPoint: {fileID: 7370953967931127351, guid: 85eb92cc4738a44c5ac311c31b23745d, type: 3}
+  m_Radius: 2.5599997
