@@ -3,37 +3,98 @@ using System.Collections;
 using System.Collections.Generic;
 
 
-/*public class Toppings
-{
-    public class pepperoni
-    {
-        public GameObject pepperoniPrefab;
-    }
-}
-*/
 public class ToppingController : MonoBehaviour
 {
     /* ============================
-       1. DRAGGING (Your Original Code)
+       1. Placing Topping Clone
        ============================ */
     [SerializeField] private bool isDragging = false;
     GameObject pepperoni_clone;
+    public GameObject toppingPrefab;
+
+
+    private Collider2D myCollider; //reference to the topping collider
+
+    public Transform pizzaCenter;
+    public float outerRadius = 1.8f;
+    public float innerRadius = 0.9f;
+
+    private List<Vector2> toppingSlots = new List<Vector2>();
+
+    void Start()
+    {
+     GenerateToppingSlots();
+     myCollider = GetComponent<Collider2D>();
+    }
+////Function for creating the Topping Slots
+    void GenerateToppingSlots()
+    {
+        toppingSlots.Clear();
+
+        // 8 outer slots
+        int outerCount = 8;
+        for (int i = 0; i < outerCount; i++)
+        {
+            float angle = (Mathf.PI * 2f / outerCount) * i;
+            Vector2 pos = (Vector2)pizzaCenter.position +
+                        new Vector2(Mathf.Cos(angle), Mathf.Sin(angle)) * outerRadius;
+            toppingSlots.Add(pos);
+        }
+
+        // 3 inner slots (e.g., spaced 120 degrees apart)
+        int innerCount = 3;
+        for (int i = 0; i < innerCount; i++)
+        {
+            float angle = (Mathf.PI * 2f / innerCount) * i;
+            Vector2 pos = (Vector2)pizzaCenter.position +
+                        new Vector2(Mathf.Cos(angle), Mathf.Sin(angle)) * innerRadius;
+            toppingSlots.Add(pos);
+        }
+    }
+
+    Vector2 SnapToNearestSlot(Vector2 pos)
+    {
+        Vector2 best = pos;
+        float bestDist = float.MaxValue;
+
+        foreach (Vector2 slot in toppingSlots)
+        {
+            float dist = Vector2.Distance(pos, slot);
+            if (dist < bestDist)
+            {
+                bestDist = dist;
+                best = slot;
+            }
+        }
+
+        return best;
+    }
+
     void Update()
     {
-        
         if (isDragging)
-        {
-            
+        {    
             pepperoni_clone.transform.position = (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition);
         }
     }
 
+/////Fuction to Make the Topping Snap to a Fixed Grid
+    private Vector2 SnapToGrid(Vector2 pos, float gridSize = 0.5f)
+    {
+        float x = Mathf.Round(pos.x / gridSize) * gridSize;
+        float y = Mathf.Round(pos.y / gridSize) * gridSize;
+        return new Vector2(x, y);
+    }
+
     void OnMouseDown()
     {
-        Debug.Log("Mouse clicked!");
-        pepperoni_clone = Instantiate(pepperoniPrefab);
-        pepperoni_clone.transform.position = new Vector2(-6f, 1.7f); //NEED TO CHANGE TO MAKE SURE IT IS SAME PLACE ON EVERY SCREEN -ET
+        ///Create Clone
+        pepperoni_clone = Instantiate(toppingPrefab);
+        pepperoni_clone.transform.position = (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition);
         pepperoni_clone.transform.rotation = Quaternion.identity;
+        ////
+
+        myCollider.enabled = false;
         isDragging = true;
 
 
@@ -41,13 +102,32 @@ public class ToppingController : MonoBehaviour
     void OnMouseUp()
     {
         isDragging = false;
+        myCollider.enabled = true;
+
+        if (pepperoni_clone != null)
+        {
+            Vector2 snapped = SnapToNearestSlot(pepperoni_clone.transform.position);
+            pepperoni_clone.transform.position = snapped;
+        }
     }
 
 
 
-    /* ============================
-       2. SCORING SYSTEM (0–100 Clamp)
-       ============================ */
+
+
+
+
+
+
+
+
+
+
+
+
+   //  ============================
+   //    2. SCORING SYSTEM (0–100 Clamp)
+   //   ============================ 
 
     private int score = 0;
 
@@ -67,9 +147,9 @@ public class ToppingController : MonoBehaviour
 
 
 
-    /* ============================
-       3. TOPPING LIMIT SYSTEM (Max 20)
-       ============================ */
+   // ============================
+    //   3. TOPPING LIMIT SYSTEM (Max 20)
+    //   ============================ 
 
     public int maxToppings = 20;
     private int currentToppings = 0;
@@ -93,12 +173,11 @@ public class ToppingController : MonoBehaviour
 
 
 
-    /* ============================
-       4. PEPPERONI SPAWNER (Stress Test)
-       ============================ */
+   //  ============================
+   //    4. PEPPERONI SPAWNER (Stress Test)
+   //    ============================ 
 
     [Header("Pepperoni Spawner")]
-    public GameObject pepperoniPrefab;
     public Transform spawnPoint;
 
     /// <summary>
@@ -106,13 +185,13 @@ public class ToppingController : MonoBehaviour
     /// </summary>
     public GameObject SpawnPepperoni()
     {
-        if (pepperoniPrefab == null || spawnPoint == null)
+        if (toppingPrefab == null || spawnPoint == null)
         {
             Debug.LogWarning("Spawner missing prefab or spawn point.");
             return null;
         }
 
-        return Instantiate(pepperoniPrefab, spawnPoint.position, Quaternion.identity);
+        return Instantiate(toppingPrefab, spawnPoint.position, Quaternion.identity);
     }
 }
 
