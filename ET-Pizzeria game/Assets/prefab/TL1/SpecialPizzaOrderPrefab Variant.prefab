@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SpecialPizzaOrderPrefab Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 2098990115055165594, guid: d93f6a25d3658194182c737c3a818418, type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 2637323607025119191, guid: d93f6a25d3658194182c737c3a818418, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -90,6 +94,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2637323607025119191, guid: d93f6a25d3658194182c737c3a818418, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7736041087482252492, guid: d93f6a25d3658194182c737c3a818418, type: 3}
+      propertyPath: m_SortingLayer
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
