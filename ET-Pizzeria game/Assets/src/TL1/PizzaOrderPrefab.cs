@@ -112,23 +112,6 @@ public class PizzaOrderPrefab : MonoBehaviour
 
 
 
-
-// -----------------------------------------------------------------------------------
-
-
-// Example from this project using prefab inheritance:
-
-// Super Class: PizzaOrderPrefab
-// Sub Class: SpecialPizzaOrderPrefab
-// Virtual Function: Initialize(PizzaOrderData data)
-
-
-
-
-
-
-
-
 // -------------------- STATIC vs DYNAMIC TYPE (MOCK CODE) --------------------
 
 // Static type is determined by the variable declaration (left side)
