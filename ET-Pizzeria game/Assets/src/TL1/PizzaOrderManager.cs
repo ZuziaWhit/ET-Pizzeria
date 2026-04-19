@@ -82,3 +82,53 @@ public class PizzaOrderManager : MonoBehaviour
         return order;
     }
 }
+
+
+
+// -------------------- CODE REUSE & COPYRIGHT DISCUSSION --------------------
+
+// Example of reuse in this project:
+// I used AI-generated images (e.g., pizza/topping UI assets) in my Unity prefab.
+
+// How this could violate copyright:
+// AI-generated images may be trained on copyrighted datasets, and their licensing
+// is not always clear. If the generated image closely resembles or reproduces
+// protected content (e.g., branded food images, stock photos, or copyrighted art),
+// using it without permission could violate copyright law. Additionally, if the
+// image is taken from a platform with usage restrictions, using it commercially
+// without a license could also be a violation.
+
+
+// What I had to do to integrate it with my code:
+// - Imported the image files into Unity (Assets folder)
+// - Assigned them to UI elements (e.g., Image components in the prefab)
+// - Linked them in the Inspector or via script to display in the pizza order UI
+// - Ensured proper scaling, formatting, and compatibility with TextMeshPro/UI layout
+
+
+// Legal implications if I market this code:
+// - I could face copyright infringement claims if the images are not licensed
+//   for commercial use
+// - I may be required to remove or replace the assets
+// - There could be legal or financial penalties depending on the violation
+// - Distribution platforms (e.g., app stores) could reject or remove the project
+
+
+// Fair Use Argument (limited and situational):
+// One could argue fair use if:
+// - The images are used for educational purposes (e.g., this assignment)
+// - The use is non-commercial
+// - The images are transformed (e.g., resized, stylized, or used as part of a system)
+// - The use does not harm the market value of the original work
+
+// However:
+// Fair use is NOT guaranteed and depends on legal interpretation.
+// For commercial projects, it is safer to use:
+// - Original assets
+// - Properly licensed assets
+// - Public domain or royalty-free resources
+
+
+// Summary:
+// While AI-generated assets can accelerate development, developers must ensure
+// proper licensing and legal compliance, especially for commercial use.
