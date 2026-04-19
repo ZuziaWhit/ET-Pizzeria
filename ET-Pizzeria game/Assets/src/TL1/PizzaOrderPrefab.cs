@@ -108,6 +108,11 @@ public class PizzaOrderPrefab : MonoBehaviour
 // Dynamic Binding → decided at runtime → based on object type
 
 
+
+
+
+
+
 // -----------------------------------------------------------------------------------
 
 
@@ -117,76 +122,54 @@ public class PizzaOrderPrefab : MonoBehaviour
 // Sub Class: SpecialPizzaOrderPrefab
 // Virtual Function: Initialize(PizzaOrderData data)
 
-// Mock code showing static vs dynamic types:
 
-/*
-PizzaOrderPrefab prefab; // static type = PizzaOrderPrefab
-*/
 
-// -------------------- CASE 1 --------------------
+
+
+
+
+
+// -------------------- STATIC vs DYNAMIC TYPE (MOCK CODE) --------------------
+
+// Static type is determined by the variable declaration (left side)
+// Dynamic type is determined by the object created (right side)
+
+// Example 1:
+// Static type = PizzaOrderPrefab
 // Dynamic type = PizzaOrderPrefab
 
 /*
-prefab = new PizzaOrderPrefab();
-prefab.Initialize(orderData);
+PizzaOrderPrefab prefab = new PizzaOrderPrefab();
 */
 
-// Dynamically bound method call:
-// Calls: PizzaOrderPrefab.Initialize()
-
-
-// -------------------- CASE 2 --------------------
+// Example 2:
+// Static type = PizzaOrderPrefab
 // Dynamic type = SpecialPizzaOrderPrefab
 
 /*
-prefab = new SpecialPizzaOrderPrefab();
-prefab.Initialize(orderData);
+PizzaOrderPrefab prefab2 = new SpecialPizzaOrderPrefab();
 */
 
-// Dynamically bound method call:
-// Calls: SpecialPizzaOrderPrefab.Initialize()
-
-// Explanation:
-// Because Initialize() is marked "virtual" in the base class and "override" in the subclass,
-// the method call is resolved at runtime based on the object's dynamic type.
-
-
-// -------------------- STATIC BINDING EXAMPLE --------------------
-
-// Example of a statically bound method (not virtual):
-// (Imagine this method exists in PizzaOrderPrefab)
-
-// public void ResetText() { ... }
-
-// Even if we change the dynamic type:
+// Example 3:
+// Static type = PizzaOrderPrefab
 
 /*
-prefab = new PizzaOrderPrefab();
-prefab.ResetText();
+PizzaOrderPrefab prefab3;
 */
 
-// Calls: PizzaOrderPrefab.ResetText()
+// Change dynamic type at runtime:
 
 /*
-prefab = new SpecialPizzaOrderPrefab();
-prefab.ResetText();
+prefab3 = new PizzaOrderPrefab();            // dynamic type = PizzaOrderPrefab
+prefab3 = new SpecialPizzaOrderPrefab();     // dynamic type = SpecialPizzaOrderPrefab
 */
 
-// Still calls: PizzaOrderPrefab.ResetText()
-
-// Explanation:
-// Since ResetText() is NOT virtual, it is statically bound.
-// The method call is resolved at compile time based on the variable's static type,
-// not the object's dynamic type.
+// Key Idea:
+// - Static type → what the variable is declared as
+// - Dynamic type → what object it actually points to at runtime
 
 
-// -------------------- SUMMARY --------------------
 
-// Dynamic binding (virtual methods):
-// → Method depends on the object's runtime (dynamic) type
-
-// Static binding (non-virtual methods):
-// → Method depends on the variable's compile-time (static) type
 
 
 
