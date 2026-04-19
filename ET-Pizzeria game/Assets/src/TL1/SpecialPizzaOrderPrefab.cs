@@ -64,3 +64,14 @@ public class SpecialPizzaOrderPrefab : PizzaOrderPrefab
         cutText.text = "✂ Cut Type: " + orderData.cutType;
     }
 }
+
+
+// -------------------------- Change Prefab ----------------------
+
+//In your PizzaOrderManager:
+
+//A ssign it:
+
+/*
+public GameObject pizzaOrderPrefab; // drag SPECIAL prefab here in Inspector
+*/
