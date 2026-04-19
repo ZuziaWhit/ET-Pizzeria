@@ -147,9 +147,9 @@ prefab3 = new PizzaOrderPrefab();            // dynamic type = PizzaOrderPrefab
 prefab3 = new SpecialPizzaOrderPrefab();     // dynamic type = SpecialPizzaOrderPrefab
 */
 
-// Key Idea:
-// - Static type → what the variable is declared as
-// - Dynamic type → what object it actually points to at runtime
+// Key idea:
+// Static type = variable type (compile time)
+// Dynamic type = actual object type (runtime)
 
 
 
