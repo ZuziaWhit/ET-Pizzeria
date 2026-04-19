@@ -48,7 +48,7 @@ public class PizzaOrderManager : MonoBehaviour
 
     // This method generates a randomized pizza order.
     // It returns a PizzaOrderData object (pure data, no UI or behavior).
-    PizzaOrderData GenerateRandomOrder()
+    public PizzaOrderData GenerateRandomOrder()
     {
         // Create a new empty data object
         PizzaOrderData order = new PizzaOrderData();
