@@ -1,120 +1,83 @@
+// Import support for coroutines (IEnumerator, yield, etc.)
 using System.Collections;
+
+// Import Unity core engine functionality (MonoBehaviour, StartCoroutine, etc.)
 using UnityEngine;
+
+// Import TextMeshPro namespace (used for UI text elements in Unity)
+// Required for TMP_Text type
 using TMPro;
 
-// This class represents the "presentation layer" of the system.
-// It is attached to the prefab and is responsible ONLY for displaying data.
-// It does NOT generate data or control game logic.
+// BASE CLASS (SUPER CLASS)
+// This class defines the DEFAULT behavior for displaying a pizza order
+// Other classes (like SpecialPizzaOrderPrefab) will INHERIT from this
 public class PizzaOrderPrefab : MonoBehaviour
 {
-    // References to UI text elements (TextMeshPro)
-    // These are assigned in the Unity Inspector.
-    // They display different parts of the pizza order.
-    public TMP_Text toppingsText;
-    public TMP_Text timeText;
-    public TMP_Text cutText;
+    // PUBLIC UI REFERENCES
+    // These should be assigned in the Unity Inspector
+    // They represent different parts of the pizza order UI
 
-    // Stores the pizza order data passed from the manager.
-    // This is kept private because it should only be set through Initialize().
-    private PizzaOrderData orderData;
+    public TMP_Text toppingsText; // Displays list of ingredients
+    public TMP_Text timeText;     // Displays bake time
+    public TMP_Text cutText;      // Displays cut type
 
-    // This method is called by the PizzaOrderManager after the prefab is instantiated.
-    // It "injects" the data into the prefab.
-    // This keeps the prefab reusable, since it doesn't generate its own data.
-    public void Initialize(PizzaOrderData data)
+    // PROTECTED DATA STORAGE
+    // "protected" means:
+    // - Accessible inside this class
+    // - ALSO accessible in subclasses (important for inheritance)
+    // - NOT accessible from unrelated scripts
+    protected PizzaOrderData orderData;
+
+    // VIRTUAL METHOD (IMPORTANT FOR POLYMORPHISM)
+    // "virtual" allows subclasses to OVERRIDE this method
+    // This enables DYNAMIC BINDING (method chosen at runtime)
+    public virtual void Initialize(PizzaOrderData data)
     {
+        // Store the incoming order data into the class variable
         orderData = data;
 
-        // Start displaying the order step-by-step using a coroutine
+        // Start a COROUTINE to display the order step-by-step
+        // Coroutines allow delays (yield return) without freezing the game
         StartCoroutine(DisplayOrderRoutine());
     }
 
-    // Coroutine used to display the order over time.
-    // Coroutines allow us to pause execution (WaitForSeconds)
-    // without freezing the entire game.
-    IEnumerator DisplayOrderRoutine()
+    // VIRTUAL COROUTINE METHOD
+    // Subclasses can override this to change how the order is displayed
+    protected virtual IEnumerator DisplayOrderRoutine()
     {
-        // Clear all UI fields before displaying new data
+        // SAFETY CHECK (VERY IMPORTANT IN UNITY)
+        // Prevents NullReferenceException if UI elements are not assigned
+        // If any required UI element is missing → STOP execution immediately
+        if (toppingsText == null || timeText == null || cutText == null)
+            yield break;
+
+        // CLEAR PREVIOUS TEXT
+        // Ensures old data doesn't remain on screen
         toppingsText.text = "";
         timeText.text = "";
         cutText.text = "";
 
-        // Display ingredients one at a time
-        // This creates a sequential, readable UI experience
+        // LOOP THROUGH INGREDIENTS
+        // orderData.ingredients is likely a list/array of strings
         foreach (string ingredient in orderData.ingredients)
         {
+            // Add each ingredient to the toppings display
+            // "\n" creates a new line for each ingredient
             toppingsText.text += ingredient + "\n";
 
-            // Wait 1.5 seconds before showing the next ingredient
+            // Pause for 1.5 seconds before showing next ingredient
+            // This creates a gradual reveal effect (like typing animation)
             yield return new WaitForSeconds(1.5f);
         }
 
-        // Display bake time after ingredients
+        // DISPLAY BAKE TIME AFTER INGREDIENTS
+        // Concatenate string with data from orderData
         timeText.text = "Bake Time: " + orderData.bakeTime;
 
-        // Pause again before showing the final detail
+        // Wait again before showing next detail
         yield return new WaitForSeconds(1.5f);
 
-        // Display cut type last
+        // DISPLAY CUT TYPE LAST
         cutText.text = "Cut Type: " + orderData.cutType;
     }
 }
-
-
-
-// -------------------- STATIC vs DYNAMIC BINDING EXAMPLE --------------------
-
-// In this system, we can think of PizzaOrderPrefab as a base (super) class,
-// and imagine a specialized version like SpecialPizzaOrderPrefab as a subclass.
-
-// Super Class: PizzaOrderPrefab
-// Sub Class: SpecialPizzaOrderPrefab
-
-// Virtual Function: Initialize(PizzaOrderData data)
-
-// Example mock code demonstrating static vs dynamic binding:
-
-/*
-PizzaOrderPrefab prefab; // static type = PizzaOrderPrefab
-
-// Case 1: dynamic type = PizzaOrderPrefab
-prefab = new PizzaOrderPrefab();
-prefab.Initialize(orderData);
-// Calls PizzaOrderPrefab.Initialize()
-
-// Case 2: dynamic type = SpecialPizzaOrderPrefab
-prefab = new SpecialPizzaOrderPrefab();
-prefab.Initialize(orderData);
-// Calls SpecialPizzaOrderPrefab.Initialize() (dynamic binding)
-*/
-
-// Explanation:
-// Because Initialize() would be declared as "virtual" in the base class
-// and "override" in the subclass, the method call is resolved at runtime
-// based on the object's dynamic type.
-
-// -------------------- STATIC BINDING EXAMPLE --------------------
-
-// A statically bound method is NOT marked virtual.
-// Example: a helper method inside PizzaOrderPrefab
-
-// public void ResetText() { ... }
-
-// Even if we use a subclass:
-
-/*
-prefab = new SpecialPizzaOrderPrefab();
-prefab.ResetText();
-*/
-
-//  Calls PizzaOrderPrefab.ResetText() (static binding)
-
-// Explanation:
-// Since ResetText() is not virtual, the method is resolved at compile time
-// based on the variable's static type, NOT the object's dynamic type.
-
-// ----------------------------------------------------------------
-
-// Summary:
-// - Dynamic binding (virtual methods): method depends on actual object type
-// - Static binding (non-virtual methods): method depends on variable type
