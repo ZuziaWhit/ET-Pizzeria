@@ -17,6 +17,10 @@ public abstract class Topping : MonoBehaviour
     public int ScoreValue => data.ScoreValue;
     public string ToppingName => data.Name;
 
+
+
+    ////*****Virtual
+    ///virtual = “This method can be replaced by a child class if it wants to.”
     public virtual void OnPlaced(Vector2 snappedPosition)
     {
         transform.position = snappedPosition;
