@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2212804145463732033}
   - component: {fileID: 1094314894503200965}
-  - component: {fileID: 9951909246637959}
   - component: {fileID: -7315059446311477545}
   m_Layer: 0
   m_Name: PizzaManager
@@ -47,19 +46,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Pizza::PizzaManager
   pizzaPrefab: {fileID: 2034929220221889421, guid: 4f6e8ffefeec8834ca24791a09412b6b, type: 3}
---- !u!114 &9951909246637959
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4235723356070782830}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2bfed18b6b86838418c9eb8253afdd24, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Pizza::LegoYodaScream
-  myAudio: {fileID: 9100624652237960620, guid: 1af2fcc3588fcfa4bb6a2ea4ec2c3cdd, type: 3}
 --- !u!114 &-7315059446311477545
 MonoBehaviour:
   m_ObjectHideFlags: 0

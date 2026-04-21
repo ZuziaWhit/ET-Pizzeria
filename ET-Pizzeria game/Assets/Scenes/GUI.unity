@@ -342,7 +342,7 @@ PrefabInstance:
     - target: {fileID: 4302788995743538465, guid: d19163d0dcad6e646a6bb1a4c3c31e48, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 9951909246637959, guid: 108f3ed73cde8a740bc600000a520052, type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 4302788995743538465, guid: d19163d0dcad6e646a6bb1a4c3c31e48, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
       value: 2
@@ -602,7 +602,7 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 9951909246637959, guid: 108f3ed73cde8a740bc600000a520052, type: 3}
+    - target: {fileID: 0}
       propertyPath: clip
       value: 
       objectReference: {fileID: 8300000, guid: 991e61f206d2a204da1c6e979193302f, type: 3}
@@ -654,7 +654,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: PizzaManager
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 0}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
