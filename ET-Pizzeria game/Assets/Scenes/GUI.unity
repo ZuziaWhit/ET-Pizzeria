@@ -602,10 +602,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 0}
-      propertyPath: clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 991e61f206d2a204da1c6e979193302f, type: 3}
     - target: {fileID: 1094314894503200965, guid: 108f3ed73cde8a740bc600000a520052, type: 3}
       propertyPath: spawnPoint
       value: 
