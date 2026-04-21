@@ -104,10 +104,23 @@ public class ToppingController : MonoBehaviour
         isDragging = false;
         myCollider.enabled = true;
 
+        var manager = ToppingManager.GetInstance(); //use singleton
+
         if (pepperoni_clone != null)
         {
-            Vector2 snapped = SnapToNearestSlot(pepperoni_clone.transform.position);
-            pepperoni_clone.transform.position = snapped;
+            if (manager.CanPlaceTopping())
+            {
+                Vector2 snapped = SnapToNearestSlot(pepperoni_clone.transform.position);
+                pepperoni_clone.transform.position = snapped;
+
+                // Tell the manager we placed one
+                manager.RegisterToppingPlaced();
+            }
+            else
+            {
+                // Too many toppings — destroy the clone
+                Destroy(pepperoni_clone);
+            }
         }
     }
 
