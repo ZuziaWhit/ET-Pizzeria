@@ -1,8 +1,9 @@
 using UnityEngine;
 
+/////Singleton//////
 public class ToppingManager
 {
-  private static ToppingManager _instance;
+  private static ToppingManager _instance; ////******static
 
   // Private constructor prevents "new ToppingManager()"
   private ToppingManager() 
@@ -12,7 +13,7 @@ public class ToppingManager
   }
 
 
-  // Create new instance
+  // Create new instance ////********dynamic
   public static ToppingManager GetInstance()
   {
     if (_instance == null)

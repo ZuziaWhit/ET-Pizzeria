@@ -1,20 +1,11 @@
 using UnityEngine;
 
+/////SubClass/////
 public class Pepperoni : Topping
 {
-    public override float CookTime => 1.2f;
-    public override int ScoreValue => 10;
-
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    /////****3***//////
+   void Awake()
+   {
+        InitializeData(new ToppingData(name: "Pepperoni", cookTime: 1.2f, scoreValue:10));
+   }
 }

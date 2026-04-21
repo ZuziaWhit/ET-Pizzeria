@@ -1,19 +1,11 @@
 using UnityEngine;
 
+/////SubClass/////
 public class Mushroom : Topping
 {
-    public override float CookTime => 1.2f;
-    public override int ScoreValue => 10;  ////CHANGE LATER
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    /////****3***//////
+    void Awake()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        InitializeData(new ToppingData(name: "Mushroom", cookTime: 1.0f, scoreValue: 5));
     }
 }

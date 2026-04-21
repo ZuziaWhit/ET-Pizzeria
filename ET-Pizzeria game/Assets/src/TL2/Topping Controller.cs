@@ -104,17 +104,25 @@ public class ToppingController : MonoBehaviour
         isDragging = false;
         myCollider.enabled = true;
 
-        var manager = ToppingManager.GetInstance(); //use singleton
+        var manager = ToppingManager.GetInstance(); //*******use static singleton
 
         if (pepperoni_clone != null)
         {
+
+            Topping topping = pepperoni_clone.GetComponent<Topping>(); //use private data class  *** "GetComponent" is the dynamic binding
+
             if (manager.CanPlaceTopping())
             {
                 Vector2 snapped = SnapToNearestSlot(pepperoni_clone.transform.position);
                 pepperoni_clone.transform.position = snapped;
 
+                topping.OnPlaced(snapped);
+
                 // Tell the manager we placed one
                 manager.RegisterToppingPlaced();
+
+
+                Debug.Log($"Placed {topping.ToppingName} | CookTime: {topping.CookTime} | Score: {topping.ScoreValue}");
             }
             else
             {
