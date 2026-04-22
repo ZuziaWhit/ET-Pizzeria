@@ -21,11 +21,20 @@ public class ToppingController : MonoBehaviour
 
     private List<Vector2> toppingSlots = new List<Vector2>();
 
+    public ToppingManager manager;
+
     void Start()
     {
      GenerateToppingSlots();
      myCollider = GetComponent<Collider2D>();
     }
+
+    void Awake()//Thread Safe bc Atomic Operation...Unity locks for you
+    {
+        var manager = ToppingManager.GetInstance(); //*******use static singleton
+    }
+
+
 ////Function for creating the Topping Slots
     void GenerateToppingSlots()
     {
@@ -104,15 +113,20 @@ public class ToppingController : MonoBehaviour
         isDragging = false;
         myCollider.enabled = true;
 
-        var manager = ToppingManager.GetInstance(); //*******use static singleton
+        
 
         if (pepperoni_clone != null)
         {
+            //Get the read data... is this okay?????????
+            Topping topping = pepperoni_clone.GetComponent<Topping>(); 
 
-            Topping topping = pepperoni_clone.GetComponent<Topping>(); //use private data class  *** "GetComponent" is the dynamic binding
+            ToppingData new_topping = new CustomTopping(topping.ToppingName, topping.CookTime, topping.ScoreValue); ////**subclass 
+
+            Debug.Log(new_topping.strGetName()); //call overridden version
 
             if (manager.CanPlaceTopping())
             {
+                Debug.Log("Enter manager!!");
                 Vector2 snapped = SnapToNearestSlot(pepperoni_clone.transform.position);
                 pepperoni_clone.transform.position = snapped;
 
@@ -122,7 +136,7 @@ public class ToppingController : MonoBehaviour
                 manager.RegisterToppingPlaced();
 
 
-                Debug.Log($"Placed {topping.ToppingName} | CookTime: {topping.CookTime} | Score: {topping.ScoreValue}");
+                Debug.Log($"Placed {new_topping.strGetName()} | CookTime: {new_topping.CookTime} | Score: {new_topping.ScoreValue}");
             }
             else
             {

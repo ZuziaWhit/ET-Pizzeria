@@ -13,6 +13,8 @@ public class ToppingManager
   }
 
 
+//Thread Safe****
+
   // Create new instance ////********dynamic
   public static ToppingManager GetInstance()
   {
