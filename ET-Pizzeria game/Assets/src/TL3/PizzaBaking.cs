@@ -14,12 +14,12 @@ public class PizzaBaking : MonoBehaviour
     public bool canBake = false;
 
     // Private class data pattern here because I have private fields for pizzabaking
-    private Pizza pizza;
+    private Food food;
     private AudioSource audioSource;
     
     void Start()
     {
-        pizza = GetComponent<Pizza>();
+        food = GetComponent<Food>();
         audioSource = FindObjectOfType<AudioSource>();
     }
     // Update increments the bake timer while pizza is in the oven AND is not burnt. It checks if it is burnt and stops music. Otherwise you get a cooked pizza
@@ -29,9 +29,10 @@ public class PizzaBaking : MonoBehaviour
 
         currentBakeTime += Time.deltaTime;
 
-        if (pizza != null)
+        if (food != null)
         {
-            pizza.bakingTime += Time.deltaTime;
+            food.bakingTime += Time.deltaTime;
+            food.Bake(); // The dynamic binding. If it is a pizza then runs Pizza.Bake or if it is another food like flatbread then we could do Flatbread.bake. Behavior will be defined at runtime
         }
 
         Debug.Log("Bake Time: " + currentBakeTime);
@@ -73,6 +74,7 @@ public class PizzaBaking : MonoBehaviour
 
     public void StartBaking()
     {
+        GameManager.Instance.StartBaking();
         Debug.Log("Bake Button Pressed!");
 
         if (!canBake || isBurnt)
