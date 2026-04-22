@@ -1,6 +1,9 @@
 using UnityEngine;
 
-public abstract class MenuBase : MonoBehaviour
+public class MenuBase
 {
-    public abstract void HandlePrimaryAction();
+    public virtual void HandlePrimaryAction()
+    {
+        Debug.Log("Default menu action");
+    }
 }
