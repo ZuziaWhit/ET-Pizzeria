@@ -8,7 +8,7 @@ public class CutScreenManager : MonoBehaviour
     private Vector2 startpos;
     private Vector2 endpos;
 
-    private float pizzaRadius = 2f;
+    private float pizzaRadius = 3f;
     private PizzaCutColor cutColorProvider;
 
     [Header("References")]
@@ -139,9 +139,14 @@ public class CutScreenManager : MonoBehaviour
         LineRenderer lr = lineObj.GetComponent<LineRenderer>();
         lr.material = new Material(Shader.Find("Sprites/Default"));
 
+        lr.useWorldSpace = false; 
+
+        Vector3 localP1 = parent.InverseTransformPoint(ToV3(p1));
+        Vector3 localP2 = parent.InverseTransformPoint(ToV3(p2));
+
         lr.positionCount = 2;
-        lr.SetPosition(0, ToV3(p1));
-        lr.SetPosition(1, ToV3(p2));
+        lr.SetPosition(0, localP1);
+        lr.SetPosition(1, localP2);
 
         lr.startWidth = 0.06f;
         lr.endWidth = 0.06f;

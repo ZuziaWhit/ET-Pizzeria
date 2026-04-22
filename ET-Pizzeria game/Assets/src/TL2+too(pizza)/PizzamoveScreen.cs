@@ -38,6 +38,21 @@ public class SceneVisibility : MonoBehaviour
             scene.name == "ToppingScreen" ||
             scene.name == "BakingScreen";
 
+        if(scene.name == "CuttingScreen")
+        {
+            gameObject.transform.position = new Vector2(0, 0); 
+        }
+
+        if(scene.name == "BakingScreen")
+        {
+            gameObject.transform.position = new Vector2(0, 0); 
+        }
+
+        if(scene.name == "ToppingScreen")
+        {
+            gameObject.transform.position = new Vector2(-1.75f, -0.5f); 
+        }
+
         foreach (Renderer r in renderers)
         {
             r.enabled = visible;
