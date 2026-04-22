@@ -10,28 +10,30 @@ public class BakeProgressUI : MonoBehaviour
     void Start()
     {
         slider.maxValue = baking.burntTime;
+        slider.minValue = 0f;
     }
 
-    void Update()
+   void Update()
     {
-        slider.value = baking.currentBakeTime;
+    // Update slider value
+    slider.value = baking.currentBakeTime;
 
-        // RAW
-        if (!baking.isCooked && !baking.isBurnt)
+    float percent = baking.currentBakeTime / baking.burntTime;
+
+    // Smooth color transition: green → yellow → red
+    if (percent < 0.5f)
         {
-            fill.color = Color.red;
+        fill.color = Color.Lerp(Color.green, Color.yellow, percent * 2f);
         }
+    else
+     {
+        fill.color = Color.Lerp(Color.yellow, Color.red, (percent - 0.5f) * 2f);
+     }
 
-        // PERFECT
-        else if (baking.isCooked && !baking.isBurnt)
+    // Optional: override if burnt (force dark red/black)
+    if (baking.isBurnt)
         {
-            fill.color = Color.green;
-        }
-
-        // BURNT
-        else if (baking.isBurnt)
-        {
-            fill.color = Color.black;
+        fill.color = new Color(0.3f, 0f, 0f); // dark burnt red
         }
     }
 }

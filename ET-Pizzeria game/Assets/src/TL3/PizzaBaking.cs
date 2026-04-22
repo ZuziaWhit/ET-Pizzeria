@@ -13,15 +13,16 @@ public class PizzaBaking : MonoBehaviour
 
     public bool canBake = false;
 
+    // Private class data pattern here because I have private fields for pizzabaking
     private Pizza pizza;
     private AudioSource audioSource;
-
+    
     void Start()
     {
         pizza = GetComponent<Pizza>();
         audioSource = FindObjectOfType<AudioSource>();
     }
-
+    // Update increments the bake timer while pizza is in the oven AND is not burnt. It checks if it is burnt and stops music. Otherwise you get a cooked pizza
     void Update()
     {
         if (!isInOven || isBurnt) return;

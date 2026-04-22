@@ -10,6 +10,7 @@ public class PizzaManager : MonoBehaviour
     public void SpawnPizza()
     {
         Debug.Log("Spawn button pressed");
+        Scene scene = SceneManager.GetActiveScene();
 
         if (isSpawning == true)
         {
@@ -23,7 +24,20 @@ public class PizzaManager : MonoBehaviour
         }
 
         currentPizza = Instantiate(pizzaPrefab);
-        currentPizza.transform.position = new Vector2(-1.75f, -0.5f); //NEED TO CHANGE TO MAKE SURE IT IS SAME PLACE ON EVERY SCREEN -ET
+        if(scene.name == "CuttingScreen")
+        {
+            currentPizza.transform.position = new Vector2(0, 0); 
+        }
+
+        if(scene.name == "BakingScreen")
+        {
+            currentPizza.transform.position = new Vector2(0, 0);
+        }
+
+        if(scene.name == "ToppingScreen")
+        {
+            currentPizza.transform.position = new Vector2(-1.75f, -0.5f);
+        } 
         currentPizza.transform.rotation = Quaternion.identity;
 
         isSpawning = false;
