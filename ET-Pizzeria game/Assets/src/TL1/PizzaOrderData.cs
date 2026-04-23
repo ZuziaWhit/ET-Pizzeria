@@ -36,7 +36,7 @@ public class PizzaOrderData
 // -------------------- WHY THESE PATTERNS --------------------
 
 // Singleton:
-// I used the Singleton pattern for global systems like PizzaGameData (scoring/order tracking).
+// I used the Singleton pattern for global systems like scoring/order tracking.
 // This ensures there is only one shared instance accessible from anywhere in the game.
 // It simplifies communication between systems like the manager and scoring logic without
 // needing to pass references everywhere.
