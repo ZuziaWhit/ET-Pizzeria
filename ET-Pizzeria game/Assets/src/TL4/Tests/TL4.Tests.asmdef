@@ -1,0 +1,21 @@
+{
+    "name": "TL4.Tests",
+    "rootNamespace": "",
+    "references": [
+        "GUID:6950c8f08bf637e6184c143591863f1b"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false,
+    "optionalUnityReferences": [
+        "TestAssemblies"
+    ]
+}
