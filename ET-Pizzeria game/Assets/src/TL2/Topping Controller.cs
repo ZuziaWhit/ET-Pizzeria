@@ -136,7 +136,7 @@ public class ToppingController : MonoBehaviour
                 manager.RegisterToppingPlaced();
 
 
-                Debug.Log($"Placed {new_topping.strGetName()} | CookTime: {new_topping.CookTime} | Score: {new_topping.ScoreValue}");
+               // Debug.Log($"Placed {new_topping.strGetName()} | CookTime: {new_topping.CookTime} | Score: {new_topping.ScoreValue}");
             }
             else
             {
