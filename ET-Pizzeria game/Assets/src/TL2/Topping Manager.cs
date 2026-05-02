@@ -5,11 +5,18 @@ public class ToppingManager
 {
   private static ToppingManager _instance; ////******static
 
+   //global data
+  public int MaxToppings { get; private set; }
+  public int CurrentCount { get; private set; }
+
   // Private constructor prevents "new ToppingManager()"
   private ToppingManager() 
   {
+    Debug.Log("Create manager");
+
     MaxToppings = 20;
     CurrentCount = 0;
+    
   }
 
 
@@ -19,14 +26,14 @@ public class ToppingManager
   public static ToppingManager GetInstance()
   {
     if (_instance == null)
-      _instance = new ToppingManager();
+    {
+    _instance = new ToppingManager();
+    }
 
     return _instance;
   }
 
-  //global data
-  public int MaxToppings { get; private set; }
-  public int CurrentCount { get; private set; }
+ 
 
   //global behavior
   public bool CanPlaceTopping()

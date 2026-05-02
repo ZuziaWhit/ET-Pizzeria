@@ -22,16 +22,23 @@ public class ToppingController : MonoBehaviour
     private List<Vector2> toppingSlots = new List<Vector2>();
 
     public ToppingManager manager;
+    
 
     void Start()
     {
+        
+
      GenerateToppingSlots();
      myCollider = GetComponent<Collider2D>();
+
+
+
     }
 
     void Awake()//Thread Safe bc Atomic Operation...Unity locks for you
     {
-        var manager = ToppingManager.GetInstance(); //*******use static singleton
+        manager = ToppingManager.GetInstance();  //*******use static singleton
+        Debug.Log(manager.CurrentCount);
     }
 
 
@@ -108,6 +115,8 @@ public class ToppingController : MonoBehaviour
 
 
     }
+
+
     void OnMouseUp()
     {
         isDragging = false;
