@@ -12,6 +12,11 @@ public class ToppingController : MonoBehaviour
     GameObject pepperoni_clone;
     public GameObject toppingPrefab;
 
+    //need to figure it out how I referenced the coin stuff. Need to access the getmepizza
+    GameObject currentPizza = PizzaManager.getmepizza();
+
+
+
 
     private Collider2D myCollider; //reference to the topping collider
 
@@ -80,6 +85,8 @@ public class ToppingController : MonoBehaviour
             {
                 bestDist = dist;
                 best = slot;
+
+            
             }
         }
 
@@ -143,6 +150,11 @@ public class ToppingController : MonoBehaviour
 
                 // Tell the manager we placed one
                 manager.RegisterToppingPlaced();
+
+                //currentPizza = PizzaManager.getmepizza();
+
+                topping.transform.SetParent(pizza.transform, true);
+
 
 
                // Debug.Log($"Placed {new_topping.strGetName()} | CookTime: {new_topping.CookTime} | Score: {new_topping.ScoreValue}");
