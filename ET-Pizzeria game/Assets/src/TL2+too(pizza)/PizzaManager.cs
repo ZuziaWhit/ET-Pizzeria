@@ -61,4 +61,10 @@ public class PizzaManager : MonoBehaviour
         PizzaGameData.SetPizza(p.GetIngredients(), p.GetBakeTime(), p.GetCut()); //added by Noah for scoring
         SceneManager.LoadScene("EndDayScene");
     }
+
+
+    public GameObject getmepizza()
+    {
+        return currentPizza;
+    }
 }

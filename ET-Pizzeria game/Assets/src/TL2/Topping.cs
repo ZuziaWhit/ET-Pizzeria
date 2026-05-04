@@ -2,7 +2,7 @@ using UnityEngine;
 
 /////SuperClass that uses ToppingData/////
 /////****2***//////
-public abstract class Topping : MonoBehaviour
+public abstract class Topping : MonoBehaviour ///change to use another library instead of monobehavior to be able to use transform
 {
     private ToppingData data;
 

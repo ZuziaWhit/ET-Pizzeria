@@ -12,6 +12,11 @@ public class ToppingController : MonoBehaviour
     GameObject pepperoni_clone;
     public GameObject toppingPrefab;
 
+    //need to figure it out how I referenced the coin stuff. Need to access the getmepizza
+    GameObject currentPizza = PizzaManager.getmepizza();
+
+
+
 
     private Collider2D myCollider; //reference to the topping collider
 
@@ -21,11 +26,27 @@ public class ToppingController : MonoBehaviour
 
     private List<Vector2> toppingSlots = new List<Vector2>();
 
+    public ToppingManager manager;
+    
+
     void Start()
     {
+        
+
      GenerateToppingSlots();
      myCollider = GetComponent<Collider2D>();
+
+
+
     }
+
+    void Awake()//Thread Safe bc Atomic Operation...Unity locks for you
+    {
+        manager = ToppingManager.GetInstance();  //*******use static singleton
+        Debug.Log(manager.CurrentCount);
+    }
+
+
 ////Function for creating the Topping Slots
     void GenerateToppingSlots()
     {
@@ -64,6 +85,8 @@ public class ToppingController : MonoBehaviour
             {
                 bestDist = dist;
                 best = slot;
+
+            
             }
         }
 
@@ -99,20 +122,27 @@ public class ToppingController : MonoBehaviour
 
 
     }
+
+
     void OnMouseUp()
     {
         isDragging = false;
         myCollider.enabled = true;
 
-        var manager = ToppingManager.GetInstance(); //*******use static singleton
+        
 
         if (pepperoni_clone != null)
         {
+            //Get the read data... is this okay?????????
+            Topping topping = pepperoni_clone.GetComponent<Topping>(); 
 
-            Topping topping = pepperoni_clone.GetComponent<Topping>(); //use private data class  *** "GetComponent" is the dynamic binding
+            ToppingData new_topping = new CustomTopping(topping.ToppingName, topping.CookTime, topping.ScoreValue); ////**subclass 
+
+            Debug.Log(new_topping.strGetName()); //call overridden version
 
             if (manager.CanPlaceTopping())
             {
+                Debug.Log("Enter manager!!");
                 Vector2 snapped = SnapToNearestSlot(pepperoni_clone.transform.position);
                 pepperoni_clone.transform.position = snapped;
 
@@ -121,8 +151,13 @@ public class ToppingController : MonoBehaviour
                 // Tell the manager we placed one
                 manager.RegisterToppingPlaced();
 
+                //currentPizza = PizzaManager.getmepizza();
 
-                Debug.Log($"Placed {topping.ToppingName} | CookTime: {topping.CookTime} | Score: {topping.ScoreValue}");
+                topping.transform.SetParent(pizza.transform, true);
+
+
+
+               // Debug.Log($"Placed {new_topping.strGetName()} | CookTime: {new_topping.CookTime} | Score: {new_topping.ScoreValue}");
             }
             else
             {

@@ -15,4 +15,26 @@ public class ToppingData
     CookTime = cookTime;
     ScoreValue = scoreValue;
   }  
+
+
+  //Base Class
+  public virtual string strGetName()
+  {
+    string something = "wrong name";
+    return something;
+  }
+}
+
+public class CustomTopping : ToppingData
+{
+  public CustomTopping(string name, float cookTime, int scoreValue)
+        : base(name, cookTime, scoreValue)
+  {
+
+  }
+  //Override SubClass
+  public override string strGetName()
+  {
+    return Name;
+  }
 }
