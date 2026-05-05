@@ -21,11 +21,21 @@ MonoBehaviour:
   m_OverrideGlobalSceneList: 1
   m_Scenes:
   - m_enabled: 1
-    m_path: Assets/GUI.unity
+    m_path: Assets/Scenes/MainMenu.unity
+  - m_enabled: 1
+    m_path: Assets/Scenes/OrderScene.unity
   - m_enabled: 1
     m_path: Assets/Scenes/ToppingScreen.unity
   - m_enabled: 1
-    m_path: Assets/Scenes/MainMenu.unity
+    m_path: Assets/Scenes/BakingScreen.unity
+  - m_enabled: 1
+    m_path: Assets/Scenes/CuttingScreen.unity
+  - m_enabled: 1
+    m_path: Assets/Scenes/EndDayScene.unity
+  - m_enabled: 1
+    m_path: Assets/Scenes/GUI.unity
+  - m_enabled: 1
+    m_path: Assets/Scenes/SampleScene.unity
   m_HasScriptingDefines: 0
   m_ScriptingDefines: []
   m_PlayerSettingsYaml:
