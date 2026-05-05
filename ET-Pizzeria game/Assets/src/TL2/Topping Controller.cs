@@ -131,7 +131,7 @@ public class ToppingController : MonoBehaviour
 
         
 
-      /*  if (pepperoni_clone != null)
+       if (pepperoni_clone != null)
         {
             //Get the read data... is this okay?????????
             Topping topping = pepperoni_clone.GetComponent<Topping>(); 
@@ -164,7 +164,7 @@ public class ToppingController : MonoBehaviour
                 // Too many toppings — destroy the clone
                 Destroy(pepperoni_clone);
             }
-        } */
+        } 
     }
 
 
