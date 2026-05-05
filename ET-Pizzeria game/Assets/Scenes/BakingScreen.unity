@@ -1649,12 +1649,20 @@ PrefabInstance:
       value: Oven
       objectReference: {fileID: 0}
     - target: {fileID: 1774550942498686838, guid: da8e6275e1d821b4e9a8abf3d1c56f1d, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.73916084
+      objectReference: {fileID: 0}
+    - target: {fileID: 1774550942498686838, guid: da8e6275e1d821b4e9a8abf3d1c56f1d, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.9878136
+      objectReference: {fileID: 0}
+    - target: {fileID: 1774550942498686838, guid: da8e6275e1d821b4e9a8abf3d1c56f1d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.22034
+      value: 4.6681
       objectReference: {fileID: 0}
     - target: {fileID: 1774550942498686838, guid: da8e6275e1d821b4e9a8abf3d1c56f1d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.13313
+      value: -0.0716
       objectReference: {fileID: 0}
     - target: {fileID: 1774550942498686838, guid: da8e6275e1d821b4e9a8abf3d1c56f1d, type: 3}
       propertyPath: m_LocalPosition.z
