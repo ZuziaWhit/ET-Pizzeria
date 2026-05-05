@@ -4,13 +4,15 @@ public class SettingsMenu : MonoBehaviour
 {
     public GameObject pauseMenu;
     public GameObject mainMenuUI;
+
     private bool openedFromPause = false;
+
+    private VolumeSettings volumeSettings = new VolumeSettings(1f); // default volume
 
     public void Show()
     {
         gameObject.SetActive(true);
 
-        // if pause menu is active, we came from pause
         if (pauseMenu != null && pauseMenu.activeSelf)
         {
             openedFromPause = true;
@@ -45,6 +47,10 @@ public class SettingsMenu : MonoBehaviour
 
     public void SetVolume(float value)
     {
-        AudioListener.volume = value;
+        // store it using Private Class Data
+        volumeSettings = new VolumeSettings(value);
+
+        // apply it to Unity
+        AudioListener.volume = volumeSettings.GetVolume();
     }
 }

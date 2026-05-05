@@ -143,6 +143,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: TL2.Test::ToppingController
   isDragging: 0
   toppingPrefab: {fileID: 1623456698024232241, guid: cb41e7ba48ec54bf2be9abb99ffaab66, type: 3}
+  pizza: {fileID: 2034929220221889421, guid: 4f6e8ffefeec8834ca24791a09412b6b, type: 3}
   pizzaCenter: {fileID: 8244348120068930079, guid: e819e442b24ef4ad88508f786ea0e8c7, type: 3}
   outerRadius: 1.8
   innerRadius: 0.9
