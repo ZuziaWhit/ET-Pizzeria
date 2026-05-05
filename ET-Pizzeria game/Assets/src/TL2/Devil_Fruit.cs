@@ -1,16 +1,9 @@
 using UnityEngine;
 
-public class Devil_Fruit : MonoBehaviour
+public class Devil_Fruit : Topping
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    void Awake()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        InitializeData(new ToppingData(name: "Devil Fruit", cookTime: 1.5f, scoreValue: 15));
     }
 }

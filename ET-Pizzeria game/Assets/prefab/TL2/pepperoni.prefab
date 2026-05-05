@@ -28,8 +28,8 @@ Transform:
   m_GameObject: {fileID: 1623456698024232241}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.08, y: -1.53, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -4.035, y: -1.468, z: 0}
+  m_LocalScale: {x: 0.6, y: 0.6, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -83,8 +83,8 @@ SpriteRenderer:
   m_SortingLayer: 3
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Sprite: {fileID: 5580886705232534535, guid: 901fec340c02df247b41c166790e3fc2, type: 3}
+  m_Color: {r: 0.7735849, g: 0.121146254, b: 0.121146254, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -128,7 +128,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 0.5
+  m_Radius: 0.85
 --- !u!114 &7771646486657291397
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -143,7 +143,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: TL2.Test::ToppingController
   isDragging: 0
   toppingPrefab: {fileID: 1623456698024232241, guid: cb41e7ba48ec54bf2be9abb99ffaab66, type: 3}
-  pizza: {fileID: 2034929220221889421, guid: 4f6e8ffefeec8834ca24791a09412b6b, type: 3}
   pizzaCenter: {fileID: 8244348120068930079, guid: e819e442b24ef4ad88508f786ea0e8c7, type: 3}
   outerRadius: 1.8
   innerRadius: 0.9

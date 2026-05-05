@@ -93,6 +93,13 @@ public class ToppingController : MonoBehaviour
         return best;
     }
 
+    //Takes a Vector2 and randomly shifts it a random direction of given magnitude
+    Vector2 wiggleVector2(Vector2 pos, float mag)
+    {
+        float random = Random.Range(0f, 360f);
+        return pos + new Vector2(Mathf.Cos(random), Mathf.Sin(random)) * mag;
+    }
+
     void Update()
     {
         if (isDragging)
@@ -144,16 +151,19 @@ public class ToppingController : MonoBehaviour
             {
                 Debug.Log("Enter manager!!");
                 Vector2 snapped = SnapToNearestSlot(pepperoni_clone.transform.position);
-                pepperoni_clone.transform.position = snapped;
+                Vector2 randomShifted = wiggleVector2(snapped, 0.2f);
 
-                topping.OnPlaced(snapped);
+                //OnPlaced() sets the transform position so this line is not needed
+                //pepperoni_clone.transform.position = randomShifted;
+
+                topping.OnPlaced(randomShifted);
 
                 // Tell the manager we placed one
                 manager.RegisterToppingPlaced();
 
                 //currentPizza = PizzaManager.getmepizza();
 
-               // topping.transform.SetParent(pizza.transform, true);
+                //topping.transform.SetParent(pizza.transform, true);
 
 
 
