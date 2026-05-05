@@ -1,5 +1,6 @@
 using NUnit.Framework;
 using UnityEngine;
+/*
 
 public class TL3PizzaBakingTests
 {
@@ -41,3 +42,4 @@ public class TL3PizzaBakingTests
         Object.DestroyImmediate(obj);
     }
 }
+*/

@@ -2,7 +2,8 @@
     "name": "TL3test",
     "rootNamespace": "",
     "references": [
-        "Pizza"
+        "Pizza",
+        "TL2+runtime"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

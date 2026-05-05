@@ -1,2 +1,14 @@
 fileFormatVersion: 2
 guid: f931f52355e91b04bb2e043f8c1b0289
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - baking: {fileID: -3027131284144125675, guid: 4f6e8ffefeec8834ca24791a09412b6b, type: 3}
+  - slider: {instanceID: 0}
+  - fill: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -10,7 +10,6 @@ public class PizzaBaking : MonoBehaviour
     public bool isInOven = false;
     public bool isCooked = false;
     public bool isBurnt = false;
-
     public bool canBake = false;
 
     // Private class data pattern here because I have private fields for pizzabaking
