@@ -13,7 +13,7 @@ public class ToppingController : MonoBehaviour
     public GameObject toppingPrefab;
 
     //need to figure it out how I referenced the coin stuff. Need to access the getmepizza
-    GameObject currentPizza = PizzaManager.getmepizza();
+   // GameObject currentPizza = PizzaManager.getmepizza();
 
 
 
@@ -131,7 +131,7 @@ public class ToppingController : MonoBehaviour
 
         
 
-        if (pepperoni_clone != null)
+      /*  if (pepperoni_clone != null)
         {
             //Get the read data... is this okay?????????
             Topping topping = pepperoni_clone.GetComponent<Topping>(); 
@@ -153,7 +153,7 @@ public class ToppingController : MonoBehaviour
 
                 //currentPizza = PizzaManager.getmepizza();
 
-                topping.transform.SetParent(pizza.transform, true);
+               // topping.transform.SetParent(pizza.transform, true);
 
 
 
@@ -164,7 +164,7 @@ public class ToppingController : MonoBehaviour
                 // Too many toppings — destroy the clone
                 Destroy(pepperoni_clone);
             }
-        }
+        } */
     }
 
 
