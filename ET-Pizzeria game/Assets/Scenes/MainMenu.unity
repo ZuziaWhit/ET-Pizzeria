@@ -336,6 +336,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 156492358}
+  - component: {fileID: 156492359}
   m_Layer: 5
   m_Name: MainMenuUI
   m_TagString: Untagged
@@ -366,6 +367,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &156492359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 156492357}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d4fc160028b1164d89f97ea2850f1f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: TL5.Gameplay::MainMenuUI
+  sceneName: ToppingScreen
 --- !u!1 &405152988
 GameObject:
   m_ObjectHideFlags: 0
@@ -554,9 +568,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2118690207}
-        m_TargetAssemblyTypeName: MenuManager, TL5.Gameplay
-        m_MethodName: ExecutePrimaryAction
+      - m_Target: {fileID: 156492359}
+        m_TargetAssemblyTypeName: MainMenuUI, TL5.Gameplay
+        m_MethodName: OnStartClicked
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1579,7 +1593,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1173489066}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 156492359}
+        m_TargetAssemblyTypeName: MainMenuUI, TL5.Gameplay
+        m_MethodName: OnQuitClicked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1173489066
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2026,6 +2052,19 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 522104535260782640, guid: ca31165a5fcbd3f4f987a2ac7fb45d48, type: 3}
   m_PrefabInstance: {fileID: 6335563366799262602}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1440023487
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1440023480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5901ba62d8acf2140bc9fa291f92cd3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: TL5.Gameplay::PauseMenuUI
+  settingsMenu: {fileID: 1294978021}
 --- !u!1 &1517834167
 GameObject:
   m_ObjectHideFlags: 0
@@ -2813,7 +2852,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2066323904}
-  - component: {fileID: 2066323905}
   m_Layer: 0
   m_Name: MainMenu
   m_TagString: Untagged
@@ -2836,19 +2874,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2066323905
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2066323902}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 85a53859099dabf499a4aa1ef257cd1e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: TL5.Gameplay::MainMenu
-  sceneName: ToppingScreen
 --- !u!1 &2111753545
 GameObject:
   m_ObjectHideFlags: 0
@@ -2932,13 +2957,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1294978023}
-        m_TargetAssemblyTypeName: SettingsMenu, TL5.Gameplay
-        m_MethodName: Show
-        m_Mode: 1
+      - m_Target: {fileID: 156492359}
+        m_TargetAssemblyTypeName: MainMenuUI, TL5.Gameplay
+        m_MethodName: OnSettingsClicked
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 1294978021}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -3011,7 +3036,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97bdc087165815248aaca9f5305cf81f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: TL5.Gameplay::MenuManager
-  currentMenu: {fileID: 2066323905}
 --- !u!4 &2118690208
 Transform:
   m_ObjectHideFlags: 0
@@ -3116,21 +3140,77 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3472167786835293216, guid: ca31165a5fcbd3f4f987a2ac7fb45d48, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3472167786835293216, guid: ca31165a5fcbd3f4f987a2ac7fb45d48, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1294978023}
+      objectReference: {fileID: 1440023487}
+    - target: {fileID: 3472167786835293216, guid: ca31165a5fcbd3f4f987a2ac7fb45d48, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnSettingsClicked
+      objectReference: {fileID: 0}
+    - target: {fileID: 3472167786835293216, guid: ca31165a5fcbd3f4f987a2ac7fb45d48, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PauseMenuUI, TL5.Gameplay
+      objectReference: {fileID: 0}
+    - target: {fileID: 3472167786835293216, guid: ca31165a5fcbd3f4f987a2ac7fb45d48, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 3879151593111192968, guid: ca31165a5fcbd3f4f987a2ac7fb45d48, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3879151593111192968, guid: ca31165a5fcbd3f4f987a2ac7fb45d48, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1078088074}
+      objectReference: {fileID: 1440023487}
+    - target: {fileID: 3879151593111192968, guid: ca31165a5fcbd3f4f987a2ac7fb45d48, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnQuitClicked
+      objectReference: {fileID: 0}
+    - target: {fileID: 3879151593111192968, guid: ca31165a5fcbd3f4f987a2ac7fb45d48, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PauseMenuUI, TL5.Gameplay
+      objectReference: {fileID: 0}
+    - target: {fileID: 3879151593111192968, guid: ca31165a5fcbd3f4f987a2ac7fb45d48, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 7822230606548603102, guid: ca31165a5fcbd3f4f987a2ac7fb45d48, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7822230606548603102, guid: ca31165a5fcbd3f4f987a2ac7fb45d48, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1440023487}
+    - target: {fileID: 7822230606548603102, guid: ca31165a5fcbd3f4f987a2ac7fb45d48, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnResumeClicked
+      objectReference: {fileID: 0}
+    - target: {fileID: 7822230606548603102, guid: ca31165a5fcbd3f4f987a2ac7fb45d48, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PauseMenuUI, TL5.Gameplay
+      objectReference: {fileID: 0}
+    - target: {fileID: 7822230606548603102, guid: ca31165a5fcbd3f4f987a2ac7fb45d48, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 9111870451875607170, guid: ca31165a5fcbd3f4f987a2ac7fb45d48, type: 3}
       propertyPath: m_Name
       value: PauseMenuUI
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4350140709542379909, guid: ca31165a5fcbd3f4f987a2ac7fb45d48, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 9111870451875607170, guid: ca31165a5fcbd3f4f987a2ac7fb45d48, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1440023487}
   m_SourcePrefab: {fileID: 100100000, guid: ca31165a5fcbd3f4f987a2ac7fb45d48, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

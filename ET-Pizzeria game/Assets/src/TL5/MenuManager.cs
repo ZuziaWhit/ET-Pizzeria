@@ -2,10 +2,25 @@ using UnityEngine;
 
 public class MenuManager : MonoBehaviour
 {
-    public MenuBase currentMenu;
+    private MenuBase currentMenu;
+
+    void Awake()
+    {
+        currentMenu = new PauseMenu(); // dynamic binding setup
+    }
+
+    public void SetPauseMenu()
+    {
+        currentMenu = new PauseMenu();
+    }
+
+    public void SetMainMenu()
+    {
+        currentMenu = new MainMenu();
+    }
 
     public void ExecutePrimaryAction()
     {
-        currentMenu.HandlePrimaryAction();
+        currentMenu.HandlePrimaryAction(); // dynamic binding happens here
     }
 }

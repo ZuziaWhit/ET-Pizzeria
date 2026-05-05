@@ -44,8 +44,8 @@ public class SceneVisibility : MonoBehaviour
         }
 
         if(scene.name == "BakingScreen")
-        {
-            gameObject.transform.position = new Vector2(0, 0); 
+        { 
+            gameObject.transform.position = new Vector2(-4, -2); 
         }
 
         if(scene.name == "ToppingScreen")

@@ -2,13 +2,28 @@ using UnityEngine;
 
 public class PauseController : MonoBehaviour
 {
+    public static PauseController Instance;
+
     public GameObject pauseMenu;
 
     private bool isPaused = false;
 
+    void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
     void Start()
     {
-        pauseMenu.SetActive(false); // make sure it's hidden at start
+        if (pauseMenu != null)
+            pauseMenu.SetActive(false);
     }
 
     void Update()
@@ -19,29 +34,29 @@ public class PauseController : MonoBehaviour
         }
     }
 
-    void TogglePause()
+    private void TogglePause()
     {
         if (isPaused)
-        {
             ResumeGame();
-        }
         else
-        {
             PauseGame();
-        }
     }
 
     public void PauseGame()
     {
         Time.timeScale = 0f;
-        pauseMenu.SetActive(true);
+        if (pauseMenu != null)
+            pauseMenu.SetActive(true);
+
         isPaused = true;
     }
 
     public void ResumeGame()
     {
         Time.timeScale = 1f;
-        pauseMenu.SetActive(false);
+        if (pauseMenu != null)
+            pauseMenu.SetActive(false);
+
         isPaused = false;
     }
 }

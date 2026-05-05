@@ -30,8 +30,8 @@ public class PizzaManager : MonoBehaviour
         }
 
         if(scene.name == "BakingScreen")
-        {
-            currentPizza.transform.position = new Vector2(0, 0);
+        { 
+            currentPizza.transform.position = new Vector2(-4, -2);
         }
 
         if(scene.name == "ToppingScreen")
@@ -61,8 +61,7 @@ public class PizzaManager : MonoBehaviour
         PizzaGameData.SetPizza(p.GetIngredients(), p.GetBakeTime(), p.GetCut()); //added by Noah for scoring
         SceneManager.LoadScene("EndDayScene");
     }
-
-
+    
     public GameObject getmepizza()
     {
         return currentPizza;

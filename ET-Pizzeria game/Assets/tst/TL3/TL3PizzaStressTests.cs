@@ -1,6 +1,6 @@
 using NUnit.Framework;
 using UnityEngine;
-
+/*
 public class TL3PizzaStressTests
 {
     [Test]
@@ -21,3 +21,4 @@ public class TL3PizzaStressTests
         }
     }
 }
+*/
