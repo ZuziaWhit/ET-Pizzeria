@@ -9,9 +9,9 @@ public class DragPizza : MonoBehaviour
 
     void OnMouseDown()
     {
-        Debug.Log("nMouseDown");
+        //Debug.Log("nMouseDown");
         Scene scene = SceneManager.GetActiveScene();//samnEmily
-        Debug.Log(scene.name);
+        //Debug.Log(scene.name);
         if(scene.name == "BakingScreen") //samnEmily
         {
             zCoord = Camera.main.WorldToScreenPoint(transform.position).z;
@@ -22,7 +22,7 @@ public class DragPizza : MonoBehaviour
     void OnMouseDrag()
     {
         Scene scene = SceneManager.GetActiveScene();//samnEmily        
-        Debug.Log(scene.name);
+        //Debug.Log(scene.name);
         if(scene.name == "BakingScreen") //samnEmily
         {
             transform.position = GetMouseWorldPosition() + offset;

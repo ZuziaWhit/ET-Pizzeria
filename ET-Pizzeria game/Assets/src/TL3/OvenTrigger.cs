@@ -10,6 +10,7 @@ public class OvenTrigger : MonoBehaviour
 
         if (other.CompareTag("Pizza"))
         {
+            Debug.Log("Is Pizza");
             pizza = other.GetComponent<PizzaBaking>();
             pizza.canBake = true;
         }
@@ -19,6 +20,7 @@ public class OvenTrigger : MonoBehaviour
     {
         if (other.CompareTag("Pizza"))
         {
+            Debug.Log("Not Pizza");
             pizza.canBake = false;
             pizza.isInOven = false;
 
