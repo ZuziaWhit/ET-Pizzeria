@@ -9,11 +9,26 @@ EditorBuildSettings:
     path: Assets/Scenes/SampleScene.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
   - enabled: 1
-    path: Assets/Scenes/EndDayScene.unity
-    guid: fc6dcb5d845f2be3cba8870279a98696
-  - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: 5cf1d1ee46205eb4ca282e5bd220f62f
+  - enabled: 1
+    path: Assets/Scenes/OrderScene.unity
+    guid: 09bdaf005e65b0f4ba46938412c367f6
+  - enabled: 1
+    path: Assets/Scenes/ToppingScreen.unity
+    guid: 0170387f94500594faa28a88b23c41c9
+  - enabled: 1
+    path: Assets/Scenes/BakingScreen.unity
+    guid: 08757c3b009cbf3439da1923d44160d7
+  - enabled: 1
+    path: Assets/Scenes/CuttingScreen.unity
+    guid: 50ad773526375334c8a4c7356a9a1c4b
+  - enabled: 1
+    path: Assets/Scenes/EndDayScene.unity
+    guid: fc6dcb5d845f2be3cba8870279a98696
+  - enabled: 0
+    path: Assets/Scenes/GUI.unity
+    guid: 334e73507bfcd8b4585d270122a98a67
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
