@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 3189468413564311769}
   - component: {fileID: 7478163617979876167}
   - component: {fileID: 3684235703454371063}
-  - component: {fileID: -1114675533897665190}
   m_Layer: 0
   m_Name: ScreenManger
   m_TagString: Untagged
@@ -58,18 +57,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1be3d9129b691eb478082ecf9b42e0a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: TL2+runtime::DontDestory
---- !u!114 &-1114675533897665190
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5422635395126346835}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e178a99df75e0a845975eca2413ee4b1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Assets.src.Audio.AudioManager
-  soundFolder: Audio
-  pitchOverrides: []
-  poolSize: 8

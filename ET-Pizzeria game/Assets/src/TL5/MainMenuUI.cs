@@ -10,6 +10,7 @@ public class MainMenuUI : MonoBehaviour
     public void OnStartClicked()
     {
         logic.HandlePrimaryAction(); // dynamic binding
+        SceneManager.LoadScene("GUI");//Sam add
         SceneManager.LoadScene(sceneName);
     }
 
