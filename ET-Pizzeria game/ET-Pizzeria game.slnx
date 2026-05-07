@@ -1,6 +1,7 @@
 ﻿<Solution>
   <Project Path="TL1.Runtime.csproj" />
   <Project Path="TL2BoundaryTests.csproj" />
+  <Project Path="Assembly-CSharp.csproj" />
   <Project Path="TL2.Test.csproj" />
   <Project Path="ScoreAssembly.csproj" />
   <Project Path="TL2+runtime.csproj" />
@@ -9,7 +10,6 @@
   <Project Path="TL2StressTests.csproj" />
   <Project Path="Tests.csproj" />
   <Project Path="PlayModeTests.csproj" />
-  <Project Path="Assembly-CSharp.csproj" />
   <Project Path="TL5.Gameplay.csproj" />
   <Project Path="TL3test.csproj" />
   <Project Path="TL4StressTests.csproj" />
