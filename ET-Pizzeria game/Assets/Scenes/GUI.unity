@@ -589,7 +589,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: ScreenManger
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -1114675533897665190, guid: f71a9b36a47fc8149b596dcf396614f5, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

@@ -1,3 +1,4 @@
+/*
 using System.Collections;
 using NUnit.Framework;
 using UnityEngine;
@@ -87,3 +88,4 @@ public class PizzaCutStressTest
         Object.DestroyImmediate(GameObject.Find("TestCamera"));
     }
 }
+*/

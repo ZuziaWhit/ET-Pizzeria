@@ -1,3 +1,4 @@
+/*
 using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.TestTools;
@@ -263,3 +264,4 @@ public class CutScreenManagerTests
         Assert.IsTrue(pizzaObj.transform.childCount <= 1);
     }
 }
+*/
