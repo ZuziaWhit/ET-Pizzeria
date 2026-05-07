@@ -1993,21 +1993,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: Oven
       objectReference: {fileID: 0}
+    - target: {fileID: 1532837686989336916, guid: da8e6275e1d821b4e9a8abf3d1c56f1d, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 1774550942498686838, guid: da8e6275e1d821b4e9a8abf3d1c56f1d, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.73916084
+      value: 0.62951124
       objectReference: {fileID: 0}
     - target: {fileID: 1774550942498686838, guid: da8e6275e1d821b4e9a8abf3d1c56f1d, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.9878136
+      value: 0.6046407
       objectReference: {fileID: 0}
     - target: {fileID: 1774550942498686838, guid: da8e6275e1d821b4e9a8abf3d1c56f1d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.6681
+      value: -0.8582
       objectReference: {fileID: 0}
     - target: {fileID: 1774550942498686838, guid: da8e6275e1d821b4e9a8abf3d1c56f1d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.0716
+      value: 1.8903
       objectReference: {fileID: 0}
     - target: {fileID: 1774550942498686838, guid: da8e6275e1d821b4e9a8abf3d1c56f1d, type: 3}
       propertyPath: m_LocalPosition.z
